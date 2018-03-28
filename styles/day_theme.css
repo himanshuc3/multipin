@@ -42,20 +42,20 @@ body{
 }
 
 .url_container{
-    color: #9400ff;
+    color: #4a4a4f;
 }
 
 .close_tab_button{
-    background: #2A2E36;
+    background: transparent;
+    color: rgba(148,0,255,0.5);
 }
 
 .close_tab_button:hover {
-    color: #DE5259;
+    /* color: #DE5259; */
 }
 
-.highlighted .close_tab_button {
-    background: #454951;
-}
+
+
 
 .highlighted {
     cursor: pointer;

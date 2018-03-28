@@ -97,9 +97,9 @@ function createTabHtmlElement(tabData, tabIndex) {
   if ("title_highlighted" in tabData) title = tabData.title_highlighted;
   if ("url_highlighted" in tabData) url = tabData.url_highlighted;
   if (tabData.iconUrl === undefined) {
-    return "<div class=\"tab\" data-tabnumber=\"" + tabIndex + "\" id=\"search_id_" + tabIndex + "\"><img class=\"url_icon\" src=\"../images/firefox.png\"><div class=\"tab_title_container\"><div class='title_text'>" + title + "</div><div class=\"url_container\">" + url +"</div></div><button class=\"menu_button_base close_tab_button\" type=\"button\"><i class=\"demo-icon icon-cancel\" aria-hidden=\"true\"></i></button></div>";
+    return "<div class=\"tab\" data-tabnumber=\"" + tabIndex + "\" id=\"search_id_" + tabIndex + "\"><img class=\"url_icon\" src=\"../images/firefox.png\"><div class=\"tab_title_container\"><div class='title_text'>" + title + "</div><div class=\"url_container\">" + url +"</div></div><button class=\"menu_button_base close_tab_button\" type=\"button\"><i class=\"fas fa-times\"></i></button></div>";
   } else {
-    return "<div class=\"tab\" data-tabnumber=\"" + tabIndex + "\" id=\"search_id_" + tabIndex + "\"><img class=\"url_icon\" src=\"" + tabData.iconUrl + "\"><div class=\"tab_title_container\"><div class='title_text'>" + title + "</div><div class=\"url_container\">" + url +"</div></div><button class=\"menu_button_base close_tab_button\" type=\"button\"><i class=\"demo-icon icon-cancel\" aria-hidden=\"true\"></i></button></div>";
+    return "<div class=\"tab\" data-tabnumber=\"" + tabIndex + "\" id=\"search_id_" + tabIndex + "\"><img class=\"url_icon\" src=\"" + tabData.iconUrl + "\"><div class=\"tab_title_container\"><div class='title_text'>" + title + "</div><div class=\"url_container\">" + url +"</div></div><button class=\"menu_button_base close_tab_button\" type=\"button\"><i class=\"fas fa-times\"></i></button></div>";
   }
 }
 
