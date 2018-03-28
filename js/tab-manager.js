@@ -252,12 +252,6 @@ document.addEventListener('DOMContentLoaded', function() {
   var renderSnapsListButton = document.getElementById('get_snaps_button');
   renderSnapsListButton.onclick = renderListOfSnapshots;
 
-  // Clicking on logo opens the Github page
-  var logoImage = document.getElementById('gibbon_tabs_logo_image');
-  logoImage.onclick = function() {
-    browser.tabs.create({url: 'https://github.com/macadev/Gibbon-Tabs'});
-  };
-
   // Having the mouse leave the Overwrite snapshot widget closes it
   var overwriteSnapshotWidget = document.getElementById('overwrite_snap_widget');
   overwriteSnapshotWidget.onmouseleave = closeMenu.bind(null, overwriteSnapshotWidget);

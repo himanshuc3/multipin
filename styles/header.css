@@ -1,31 +1,117 @@
-#gibbon_tabs_logo_image {
+#tabs_name {
+  margin: 0px;
+  padding: 16px 0;
+  font-size: 20px;
+}
+#tabs_name_div {
+  width: 100%;
+  text-align: center;
+}
+
+.tab_manager_menu_div{
+  width: 100%;
+}
+
+.search_box_base {
+  color: #FFFFFF;
+  background: #1B1D23;
+  outline: none;
+  border-width:0px;
+  border:none;
+}
+#search_box {
+  /* extending to full width forcefully */
+  width: 90%;
+  margin-left: 5%;
+  margin-bottom: 8px;
+
+  padding: 8px 16px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 16px;
+
+  /* text-align: center; */
+}
+#search_box:focus {
+  outline: none;
+}
+
+/*
+  Styles used for displaying the tabs
+*/
+
+#tab_container {
+  /* avoid an excessively wide status text */
+  white-space: pre;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  clear: both;
+  /* max-width: 400px; */
+}
+.url_icon {
+  width: 15px;
+  height: 15px;
   position: absolute;
-  height: 60px;
-  width: 60px;
   top: 0;
   bottom: 0;
-  right: 10px;
-  margin: auto;
-  cursor: pointer;
+  left: 0;
+  right: 0;
+  margin-bottom: auto;
+  margin-top: auto;
+  padding-left: 10px;
 }
-#gibbon_tabs_name {
-  font-style: oblique;
-  margin-top: 8px;
-  margin-bottom: 0px;
-  padding-right: 20px;
-  padding-left: 5px;
-}
-#gibbon_tabs_name_div {
-  float: left;
-  width: 50%;
-}
-#gibbon_tabs_logo_image_div {
+.tab {
   position: relative;
-  float: right;
-  width: 30%;
-  height: 70px;
+  background: #2A2E36;
+  padding-top: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  margin-bottom: 8px;
 }
-#tab_manager_menu_div {
-  float: left;
-  width: 69%;
+.tab_title_container {
+  position: relative;
+  left: 25px;
+  width: 90%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.url_container {
+  width: 95%;
+  font-size: 25%;
+  color: #D7DAE0;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.close_tab_button {
+  background: #2A2E36;
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 570px;
+  right: 0;
+  margin-bottom: auto;
+  margin-top: auto;
+}
+.close_tab_button:hover {
+  color: #DE5259;
+}
+.highlighted .close_tab_button {
+  background: #454951;
+  left: 567px;
+}
+
+.highlighted {
+  cursor: pointer;
+  background: #454951;
+  border-style: solid;
+  border-left-color: #568AF2;
+  border-right-color: #2A2E36;
+  border-top-color: #2A2E36;
+  border-bottom-color: #2A2E36;
 }

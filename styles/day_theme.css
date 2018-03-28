@@ -1,0 +1,63 @@
+/*
+================================
+= General
+================================
+*/
+body{
+    color: #0c0c0d;
+    background: #f9f9fa;
+}
+
+/*
+================================
+= Multipin heading
+================================
+*/
+
+#tabs_name_div{
+    /* background: #d7d7db; */
+    color: #9400ff;
+}
+
+
+/*
+================================
+= Search
+================================
+*/
+#search_box{
+    color: #0c0c0d;
+    background: #ededf0;
+}
+
+/*
+================================
+= Tab list Styles
+================================
+*/
+
+.tab{
+    background: #6200a4;
+}
+
+.url_container{
+    color: #D7DAE0;
+}
+
+.close_tab_button{
+    background: #2A2E36;
+}
+
+.close_tab_button:hover {
+    color: #DE5259;
+}
+
+.highlighted {
+    cursor: pointer;
+    background: #454951;
+    border-style: solid;
+    border-left-color: #568AF2;
+    border-right-color: #2A2E36;
+    border-top-color: #2A2E36;
+    border-bottom-color: #2A2E36;
+}
