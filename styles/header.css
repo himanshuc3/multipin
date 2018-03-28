@@ -1,12 +1,27 @@
-#tabs_name {
-  margin: 0px;
-  padding: 16px 0;
-  font-size: 20px;
-}
+/*
+================================
+= Multipin Heading
+================================
+*/
+
 #tabs_name_div {
   width: 100%;
   text-align: center;
 }
+
+#tabs_name {
+  margin: 0px;
+  padding: 16px 0;
+  font-size: 28px;
+  font-family: "Open Sans";
+  font-weight: 800;
+}
+
+/*
+================================
+= Search box
+================================
+*/
 
 .tab_manager_menu_div{
   width: 100%;
@@ -19,39 +34,53 @@
   border-width:0px;
   border:none;
 }
+
 #search_box {
-  /* extending to full width forcefully */
   width: 90%;
   margin-left: 5%;
   margin-bottom: 8px;
-
   padding: 8px 16px;
   margin-bottom: 15px;
   border-radius: 5px;
   font-weight: bold;
   font-size: 16px;
-
-  /* text-align: center; */
 }
+
 #search_box:focus {
   outline: none;
 }
 
 /*
-  Styles used for displaying the tabs
+================================
+= Tab Styling
+================================
 */
 
 #tab_container {
-  /* avoid an excessively wide status text */
   white-space: pre;
   text-overflow: ellipsis;
   overflow: hidden;
   clear: both;
-  /* max-width: 400px; */
 }
+
+.tab {
+  position: relative;
+  padding: 10px;
+  padding: 16px 0;
+  padding-left: 24px;
+}
+
+.title_text{
+  text-overflow: ellipsis;
+  overflow: hidden;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -1px;
+}
+
 .url_icon {
-  width: 15px;
-  height: 15px;
+  width: 40px;
+  height: 30px;
   position: absolute;
   top: 0;
   bottom: 0;
@@ -61,15 +90,7 @@
   margin-top: auto;
   padding-left: 10px;
 }
-.tab {
-  position: relative;
-  background: #2A2E36;
-  padding-top: 10px;
-  padding-right: 10px;
-  padding-bottom: 10px;
-  padding-left: 10px;
-  margin-bottom: 8px;
-}
+
 .tab_title_container {
   position: relative;
   left: 25px;
@@ -78,17 +99,17 @@
   text-overflow: ellipsis;
   overflow: hidden;
 }
+
 .url_container {
-  width: 95%;
-  font-size: 25%;
-  color: #D7DAE0;
+  width: 100%;
+  letter-spacing: 2px;
+  font-size: 100%;
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
 }
 
 .close_tab_button {
-  background: #2A2E36;
   z-index: 1;
   position: absolute;
   top: 0;
@@ -98,20 +119,12 @@
   margin-bottom: auto;
   margin-top: auto;
 }
-.close_tab_button:hover {
-  color: #DE5259;
-}
+
 .highlighted .close_tab_button {
-  background: #454951;
   left: 567px;
 }
 
 .highlighted {
   cursor: pointer;
   background: #454951;
-  border-style: solid;
-  border-left-color: #568AF2;
-  border-right-color: #2A2E36;
-  border-top-color: #2A2E36;
-  border-bottom-color: #2A2E36;
 }

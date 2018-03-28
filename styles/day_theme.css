@@ -37,11 +37,12 @@ body{
 */
 
 .tab{
-    background: #6200a4;
+    color: #0c0c0d;
+    /* background: #6200a4; */
 }
 
 .url_container{
-    color: #D7DAE0;
+    color: #9400ff;
 }
 
 .close_tab_button{
@@ -52,12 +53,12 @@ body{
     color: #DE5259;
 }
 
+.highlighted .close_tab_button {
+    background: #454951;
+}
+
 .highlighted {
     cursor: pointer;
-    background: #454951;
-    border-style: solid;
-    border-left-color: #568AF2;
-    border-right-color: #2A2E36;
-    border-top-color: #2A2E36;
-    border-bottom-color: #2A2E36;
+    background: rgba(148, 0, 255,0.2);
+    border-left: 3px solid rgba(148,0,255,1);
 }

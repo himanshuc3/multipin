@@ -1,20 +1,36 @@
+/*
+================================
+= Fonts
+================================
+*/
+
+/*
+================================
+= General Styles
+================================
+*/
+
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-
 body {
   margin: 0;
   padding:0;
   width: 600px;
-  font-family: "Inconsolata", "Monaco", "Consolas", 'Courier New', Courier;
+  font-family: 'Open Sans';
   font-size: 75%;
   color: #FFFFFF;
   background: #21252B;
+  max-height: 400px;
 }
 
-b {
-  color: #FFFF00;
+/* Search highlighting */
+b{
+  color: #b1b1b3; 
+  font-style: italic;
+  font-weight: 400;
 }
+
