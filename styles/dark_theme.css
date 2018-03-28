@@ -4,8 +4,8 @@
 ================================
 */
 body{
-    color: #0c0c0d;
-    background: #f9f9fa;
+    color: #c8d6e5;
+    background: #130f40;
 }
 
 /*
@@ -15,8 +15,7 @@ body{
 */
 
 #tabs_name_div{
-    /* background: #d7d7db; */
-    color: #9400ff;
+    color: #22a6b3;
 }
 
 
@@ -26,8 +25,8 @@ body{
 ================================
 */
 #search_box{
-    color: #0c0c0d;
-    background: #ededf0;
+    color: #dff9fb;
+    background: #30336b;
 }
 
 /*
@@ -37,12 +36,12 @@ body{
 */
 
 .tab{
-    color: #0c0c0d;
+    color: #7ed6df;
     /* background: #6200a4; */
 }
 
 .url_container{
-    color: #4a4a4f;
+    color: #7ed6df;
 }
 
 .close_tab_button{
