@@ -1,0 +1,5 @@
+Features:
+    1. Reloading tabs.
+    2. Deleting all tabs to the right/left.
+    3. Moving tab to front/end.
+    4. Snapshot of all current tabs to save for later.
