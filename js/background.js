@@ -14,7 +14,6 @@ function updateCount(tabId, isOnRemoved) {
     });
 }
   
-  
 browser.tabs.onRemoved.addListener(
     (tabId) => { updateCount(tabId, true);
 });

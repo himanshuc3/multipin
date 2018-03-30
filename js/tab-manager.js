@@ -83,6 +83,11 @@ function closeTab(tabIndex, tabElement, event) {
   });
 }
 
+function setupFeatures(){
+  var featureButtons = document.getElementsByClassName("new_tab");
+  featureButtons[0].addEventListener("click", createTab.bind(null));
+}
+
 function reloadTab(tabIndex, event) {
   if (event != null) event.stopPropagation();
   var tab = tabsToRender[tabIndex - 1];
@@ -102,17 +107,19 @@ function createTab(event){
   // createTabHtmlElement({
   //   title: "New Tab",
   //   url: "about:newtab"
-  // }, tabsToRender.length + 1);
-  browser.tabs.create({
-    url: "https://developer.mozilla.org/en-US/Add-ons/WebExtensions"
-  });
+  // }, tabsToRender.length);
+  browser.tabs.create({});
 }
 
 function createTabHtmlElement(tabData, tabIndex) {
   var title = tabData.title.replace(/</g, "&lt;").replace(/>/g, "&gt;");
   var url = tabData.url;
   url = url.replace(/(^\w+:|^)\/\//, '');
-  url = url.substring(0, url.length-1);
+
+  if(url.charAt(url.length-1) == "/"){
+    url = url.substring(0, url.length-1);
+  }
+
   if ("title_highlighted" in tabData) title = tabData.title_highlighted;
   if ("url_highlighted" in tabData) url = tabData.url_highlighted;
   if (tabData.iconUrl === undefined) {
@@ -150,11 +157,23 @@ function makeTabElementsClickable() {
     closeTabButton[0].addEventListener("click", closeTab.bind(null, tabIndex, tabElement));
     reloadButton = tabElement.getElementsByClassName("reload");
     reloadButton[0].addEventListener("click", reloadTab.bind(null, tabIndex));
-    createTabButton = document.getElementsByClassName("new_tab")[0];
-    createTabButton.addEventListener("click", createTab.bind(null));
     tabIndex++;
   }
 }
+
+function toggleTheme(){
+  var toggly = document.getElementById("toggly");
+  var toggle = document.getElementsByClassName("toggle")[0];
+  var theme  = document.getElementById("theme");
+  toggly.addEventListener("click", function(){
+    if(theme.getAttribute("href") == "styles/themes/dark_theme.css"){
+      theme.href = "styles/themes/day_theme.css";
+    }else{
+      theme.href = "styles/themes/dark_theme.css";
+    }
+  });
+}
+
 
 function searchTabs() {
   var searchText = document.getElementById('search_box').value;
@@ -238,14 +257,6 @@ function hideElement(element) {
   element.style.display = "none";
 }
 
-function toggleTheme(theme){
-
-  if(theme.getAttribute("href") == "styles/themes/dark_theme.css"){
-    theme.href = "styles/themes/dark_theme.css";
-  }else{
-    theme.href = "styles/themes/day_theme.css";
-  }
-}
 
 var fuse; // used to perform the fuzzy search
 var tabsToSearch = [];
@@ -256,6 +267,17 @@ var activeTabIndex;
 
 //Starts code execution
 document.addEventListener('DOMContentLoaded', function() {
+  //Creating list to be sortable
+  Sortable.create(tab_container,{
+    animation: 200
+  });
+
+  //Setting up Feature handlers
+  setupFeatures();
+
+  //toggling theme
+  toggleTheme();
+
   // Call searchTabs when user inputs in search box
   var tabSearchInputBox = document.getElementById('search_box');
   tabSearchInputBox.focus();
@@ -294,11 +316,6 @@ document.addEventListener('DOMContentLoaded', function() {
   var overwriteSnapshotAllWindowsCheckbox = document.getElementById('overwrite_snapshot_all_windows_checkbox');
   overwriteSnapshotActiveWindowCheckbox.onclick = toggleSnapshotTypeCheckbox.bind(null, overwriteSnapshotActiveWindowCheckbox, overwriteSnapshotAllWindowsCheckbox);
   overwriteSnapshotAllWindowsCheckbox.onclick = toggleSnapshotTypeCheckbox.bind(null, overwriteSnapshotAllWindowsCheckbox, overwriteSnapshotActiveWindowCheckbox);
-
-  //Toggle themes
-  var themeToggleSwitcher = document.getElementById("toggly");
-  var themeLinkFile = document.getElementById("theme");
-  themeToggleSwitcher.onclick = toggleTheme.bind(null, themeLinkFile);
 
   getAllTabs(initializeSearchVariables);
 

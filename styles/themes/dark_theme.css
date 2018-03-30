@@ -31,6 +31,21 @@ body{
 
 /*
 ================================
+= features
+================================
+*/
+
+.features{
+    /* background: rgba(148, 0, 255,0.2); */
+    background: rgba(255,255,255,0);
+}
+
+.features button{
+    color: #008FFF;
+}
+
+/*
+================================
 = Tab list Styles
 ================================
 */
@@ -45,9 +60,11 @@ body{
     color: #7ed6df;
 }
 
-.close_tab_button{
+.close_tab_button,
+.reload {
     background: transparent;
     color: rgba(148,0,255,0.5);
+    transition: color 0.5s;
 }
 
 .highlighted {
