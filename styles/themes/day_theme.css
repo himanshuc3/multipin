@@ -44,14 +44,12 @@ body{
     color: #4a4a4f;
 }
 
-.close_tab_button{
+.close_tab_button,
+.reload {
     background: transparent;
     color: rgba(148,0,255,0.5);
 }
 
-.close_tab_button:hover {
-    /* color: #DE5259; */
-}
 
 .highlighted {
     cursor: pointer;

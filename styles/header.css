@@ -1,5 +1,37 @@
 /*
 ================================
+= Fonts
+================================
+*/
+
+/*
+================================
+= General Styles
+================================
+*/
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding:0;
+  width: 400px;
+  font-family: 'Open Sans';
+  font-size: 75%;
+  max-height: 400px;
+}
+
+b{
+  color: rgba(148,0,255,1);
+  font-weight: 400;
+}
+
+/*
+================================
 = Multipin Heading
 ================================
 */
@@ -28,8 +60,6 @@
 }
 
 .search_box_base {
-  color: #FFFFFF;
-  background: #1B1D23;
   outline: none;
   border-width:0px;
   border:none;
@@ -121,15 +151,88 @@
 }
 
 .close_tab_button {
-  /* z-index: 1; */
   position: absolute;
   top: 20px;
   right: 20px;
   font-size: 20px;
 }
 
+.reload{
+  position: absolute;
+  top: 25px;
+  right: 60px;
+  font-size: 20px;
+  border: none;
+  cursor: pointer;
+}
 
 .highlighted {
   cursor: pointer;
-  background: #454951;
+}
+
+/*
+================================
+= toggle
+================================
+*/
+
+.toggle{
+  position:absolute;
+  right:30px;
+  top: 20px;
+}
+
+.toggle label {
+  display: block;
+  width: 54px;
+  height: 32px;
+  margin: 0px auto;
+  border-radius: 100px;
+  transition: all 0.2s ease-in-out;
+  -webkit-transition: all 0.2s ease-in-out;
+  background-color: #E6E9EC;
+}
+
+.toggle input {
+  display: none;
+}
+
+.toggle i {
+  height: 28px;
+  width: 28px;
+  background: #ffffff;
+  display: inline-block;
+  border-radius: 100px;
+  margin-top: 2px;
+  margin-left: 2px;
+  transition: all 0.2s ease-in-out;
+  -webkit-transition: all 0.2s ease-in-out;
+  pointer-events: none;
+  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0);
+}
+
+.toggle label:hover>i {
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.20);
+  transform: scale(1.01);
+}
+
+.toggle input:checked+label>i {
+  margin-left: 24px;
+}
+
+.toggle label:active {
+  background-color: #A6B9CB;
+}
+
+.toggle label:active>i {
+  width: 34px;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.20);
+}
+
+.toggle input:checked+label:active>i {
+  margin-left: 18px;
+}
+
+.toggle input:checked+label {
+  background-color: #008FFF;
 }

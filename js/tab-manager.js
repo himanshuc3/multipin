@@ -83,6 +83,13 @@ function closeTab(tabIndex, tabElement, event) {
   });
 }
 
+function reloadTab(tabIndex, event) {
+  if (event != null) event.stopPropagation();
+  var tab = tabsToRender[tabIndex - 1];
+  browser.tabs.reload(tab.tabId, function() {
+  });
+}
+
 function getAllTabs(callback) {
   browser.tabs.query({}, function(tabs) {
     browser.windows.getCurrent({}, function(windowData) {
@@ -97,9 +104,9 @@ function createTabHtmlElement(tabData, tabIndex) {
   if ("title_highlighted" in tabData) title = tabData.title_highlighted;
   if ("url_highlighted" in tabData) url = tabData.url_highlighted;
   if (tabData.iconUrl === undefined) {
-    return "<div class=\"tab\" data-tabnumber=\"" + tabIndex + "\" id=\"search_id_" + tabIndex + "\"><img class=\"url_icon\" src=\"../images/firefox.png\"><div class=\"tab_title_container\"><div class='title_text'>" + title + "</div><div class=\"url_container\">" + url +"</div></div><button class=\"menu_button_base close_tab_button\" type=\"button\"><i class=\"fas fa-redo-alt\"></i><i class=\"fas fa-times\"></i></button></div>";
+    return `<div class="tab" data-tabnumber=" ${tabIndex} " id="search_id_${tabIndex}"><img class="url_icon" src="../images/firefox.png"><div class="tab_title_container"><div class='title_text'> ${title} </div><div class="url_container"> ${url} </div></div><button class="menu_button_base close_tab_button" type="button"><i class="fas fa-times"></i></button></div>`;
   } else {
-    return "<div class=\"tab\" data-tabnumber=\"" + tabIndex + "\" id=\"search_id_" + tabIndex + "\"><img class=\"url_icon\" src=\"" + tabData.iconUrl + "\"><div class=\"tab_title_container\"><div class='title_text'>" + title + "</div><div class=\"url_container\">" + url +"</div></div><button class=\"menu_button_base close_tab_button\" type=\"button\"><i class=\"fas fa-redo-alt\"></i><i class=\"fas fa-times\"></i></button></div>";
+    return "<div class=\"tab\" data-tabnumber=\"" + tabIndex + "\" id=\"search_id_" + tabIndex + "\"><img class=\"url_icon\" src=\"" + tabData.iconUrl + "\"><div class=\"tab_title_container\"><div class='title_text'>" + title + "</div><div class=\"url_container\">" + url +"</div></div><button class=\"reload\" type=\"button\"><i class=\"fas fa-redo-alt\"></i></button><button class=\"menu_button_base close_tab_button\" type=\"button\"><i class=\"fas fa-times\"></i></button></div>";
   }
 }
 
@@ -122,12 +129,15 @@ function makeTabElementsClickable() {
   var tabElements = document.getElementsByClassName('tab');
   var closeTabButton;
   var tabIndex;
+  var reloadButton;
   for (let tabElement of tabElements) {
     tabIndex = tabElement.getAttribute('data-tabnumber');
     tabElement.onclick = activateTab.bind(null, tabIndex);
     tabElement.addEventListener("mouseover", highlightTabOnHover.bind(null, tabIndex));
     closeTabButton = tabElement.getElementsByClassName('close_tab_button');
     closeTabButton[0].addEventListener("click", closeTab.bind(null, tabIndex, tabElement));
+    reloadButton = tabElement.getElementsByClassName("reload");
+    reloadButton[0].addEventListener("click", reloadTab.bind(null, tabIndex));
     tabIndex++;
   }
 }
@@ -214,6 +224,15 @@ function hideElement(element) {
   element.style.display = "none";
 }
 
+function toggleTheme(theme){
+
+  if(theme.getAttribute("href") == "styles/themes/dark_theme.css"){
+    theme.href = "styles/themes/dark_theme.css";
+  }else{
+    theme.href = "styles/themes/day_theme.css";
+  }
+}
+
 var fuse; // used to perform the fuzzy search
 var tabsToSearch = [];
 var tabsToRender = [];
@@ -262,5 +281,11 @@ document.addEventListener('DOMContentLoaded', function() {
   overwriteSnapshotActiveWindowCheckbox.onclick = toggleSnapshotTypeCheckbox.bind(null, overwriteSnapshotActiveWindowCheckbox, overwriteSnapshotAllWindowsCheckbox);
   overwriteSnapshotAllWindowsCheckbox.onclick = toggleSnapshotTypeCheckbox.bind(null, overwriteSnapshotAllWindowsCheckbox, overwriteSnapshotActiveWindowCheckbox);
 
+  //Toggle themes
+  var themeToggleSwitcher = document.getElementById("toggly");
+  var themeLinkFile = document.getElementById("theme");
+  themeToggleSwitcher.onclick = toggleTheme.bind(null, themeLinkFile);
+
   getAllTabs(initializeSearchVariables);
+
 });

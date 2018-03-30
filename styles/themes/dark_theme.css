@@ -49,9 +49,7 @@ body{
     color: rgba(148,0,255,0.5);
 }
 
-.close_tab_button:hover {
-    /* color: #DE5259; */
-}
+
 
 .highlighted {
     cursor: pointer;
