@@ -40,6 +40,7 @@ body{
     /* background: #6200a4; */
 }
 
+
 .url_container{
     color: #7ed6df;
 }
@@ -48,8 +49,6 @@ body{
     background: transparent;
     color: rgba(148,0,255,0.5);
 }
-
-
 
 .highlighted {
     cursor: pointer;

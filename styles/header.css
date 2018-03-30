@@ -44,7 +44,7 @@ b{
 #tabs_name {
   margin: 0px;
   padding: 16px 0;
-  font-size: 28px;
+  font-size: 24px;
   font-family: "Open Sans";
   font-weight: 800;
 }
@@ -85,7 +85,7 @@ b{
 #tab_manager_menu_div .fa-search { 
   position: absolute;
   top: 10px;
-  left: 44px;
+  left: 36px;
   font-size: 16px;
 }
 
@@ -113,10 +113,10 @@ b{
 .title_text{
   text-overflow: ellipsis;
   overflow: hidden;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 600;
   letter-spacing: -1px;
-  width: 80%;
+  width: 75%;
 }
 
 .url_icon {
@@ -142,26 +142,27 @@ b{
 }
 
 .url_container {
-  width: 90%;
+  width: 70%;
   letter-spacing: 2px;
   font-size: 100%;
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
+  font-style: italic;
 }
 
 .close_tab_button {
   position: absolute;
   top: 20px;
   right: 20px;
-  font-size: 20px;
+  font-size: 16px;
 }
 
 .reload{
   position: absolute;
   top: 25px;
   right: 60px;
-  font-size: 20px;
+  font-size: 16px;
   border: none;
   cursor: pointer;
 }

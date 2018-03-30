@@ -41,13 +41,19 @@ body{
 }
 
 .url_container{
-    color: #4a4a4f;
+    color: #363959;
 }
 
 .close_tab_button,
 .reload {
     background: transparent;
     color: rgba(148,0,255,0.5);
+    transition: color 0.5s;
+}
+
+.close_tab_button:hover,
+.reload:hover{
+    color: #363959;
 }
 
 
