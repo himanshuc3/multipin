@@ -21,4 +21,7 @@ browser.tabs.onRemoved.addListener(
 browser.tabs.onCreated.addListener(
     (tabId) => { updateCount(tabId, false);
 });
+browser.browserAction.onClicked.addListener(function(tab) {
+    chrome.tabs.create({'url': chrome.extension.getURL('background.html')});
+});
 updateCount();

@@ -98,6 +98,16 @@ function getAllTabs(callback) {
   });
 }
 
+function createTab(event){
+  // createTabHtmlElement({
+  //   title: "New Tab",
+  //   url: "about:newtab"
+  // }, tabsToRender.length + 1);
+  browser.tabs.create({
+    url: "https://developer.mozilla.org/en-US/Add-ons/WebExtensions"
+  });
+}
+
 function createTabHtmlElement(tabData, tabIndex) {
   var title = tabData.title.replace(/</g, "&lt;").replace(/>/g, "&gt;");
   var url = tabData.url;
@@ -140,6 +150,8 @@ function makeTabElementsClickable() {
     closeTabButton[0].addEventListener("click", closeTab.bind(null, tabIndex, tabElement));
     reloadButton = tabElement.getElementsByClassName("reload");
     reloadButton[0].addEventListener("click", reloadTab.bind(null, tabIndex));
+    createTabButton = document.getElementsByClassName("new_tab")[0];
+    createTabButton.addEventListener("click", createTab.bind(null));
     tabIndex++;
   }
 }
