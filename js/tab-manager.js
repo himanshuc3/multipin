@@ -88,18 +88,31 @@ function moveStartEnd(){
 }
 
 function deleteTabsToLeft(){
-  var till = activeTabIndex - 1;
-  for(var i=0; i<till ; i++){
-    browser.tabs.remove(tabsToSearch[i].tabId);
-  }
-  window.close();
+
+  browser.tabs.query({currentWindow: true}, function(tabs) {
+    for(var tab of tabs){
+      if(tab.active)break;
+      browser.tabs.remove(tab.id);
+    }
+  });
+
+  // window.close();
 }
 
 function deleteTabsToRight(){
-  for(var i=activeTabIndex; i<numTabs ; i++){
-    browser.tabs.remove(tabsToSearch[i].tabId);
-  }
-  window.close();
+  browser.tabs.query({currentWindow: true}, function(tabs) {
+    var activeGone = false;
+    for(var tab of tabs){
+      if(tab.active){
+        activeGone = true;
+        continue;
+      }
+      if(activeGone){
+      browser.tabs.remove(tab.id);
+      }
+    }
+  });
+  // window.close();
 }
 //End of feature functions
 
@@ -216,7 +229,7 @@ function createTabHtmlElement(tabData, tabIndex) {
   if ("title_highlighted" in tabData) title = tabData.title_highlighted;
   if ("url_highlighted" in tabData) url = tabData.url_highlighted;
   if (tabData.iconUrl === undefined) {
-    return `<div class="tab" data-tabnumber=" ${tabIndex} " id="search_id_${tabIndex}"><img class="url_icon" src="../images/firefox.png"><div class="tab_title_container"><div class='title_text'> ${title} </div><div class="url_container"> ${url} </div></div><button class="menu_button_base close_tab_button" type="button"><i class="fas fa-times"></i></button></div>`;
+    return "<div class=\"tab\" data-tabnumber=\""+ tabIndex + "\" id=\"search_id_" + tabIndex + "\"><img class=\"url_icon\" src=\"../images/firefox.png\"><div class=\"tab_title_container\"><div class='title_text'>" + title + "</div><div class=\"url_container\">" + url + "</div></div><button class=\"reload\" type=\"button\"><i class=\"fas fa-redo-alt\"></i></button><button class=\"menu_button_base close_tab_button\" type=\"button\"><i class=\"fas fa-times\"></i></button></div>";
   } else {
     return "<div class=\"tab\" data-tabnumber=\"" + tabIndex + "\" id=\"search_id_" + tabIndex + "\"><img class=\"url_icon\" src=\"" + tabData.iconUrl + "\"><div class=\"tab_title_container\"><div class='title_text'>" + title + "</div><div class=\"url_container\">" + url + "</div></div><button class=\"reload\" type=\"button\"><i class=\"fas fa-redo-alt\"></i></button><button class=\"menu_button_base close_tab_button\" type=\"button\"><i class=\"fas fa-times\"></i></button></div>";
   }
@@ -241,15 +254,15 @@ function makeTabElementsClickable() {
   var tabElements = document.getElementsByClassName('tab');
   var closeTabButton;
   var tabIndex;
-  var reloadButton;
+  // var reloadButton;
   for (let tabElement of tabElements) {
     tabIndex = tabElement.getAttribute('data-tabnumber');
     tabElement.onclick = activateTab.bind(null, tabIndex);
     tabElement.addEventListener("mouseover", highlightTabOnHover.bind(null, tabIndex));
     closeTabButton = tabElement.getElementsByClassName('close_tab_button');
     closeTabButton[0].addEventListener("click", closeTab.bind(null, tabIndex, tabElement));
-    reloadButton = tabElement.getElementsByClassName("reload");
-    reloadButton[0].addEventListener("click", reloadTab.bind(null, tabIndex));
+      reloadButton = tabElement.getElementsByClassName("reload");
+      reloadButton[0].addEventListener("click", reloadTab.bind(null, tabIndex));
     tabIndex++;
   }
 }
