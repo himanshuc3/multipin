@@ -5,6 +5,49 @@ var highlightIndex = 1; //highlighted tab index in my addon
 var numTabs; 
 var activeTabIndex; //currently active tab index
 
+function keyPresshandlers(){
+
+  document.addEventListener("keypress", function(event){
+  // use the value of event if available or
+    // if not assume it's IE and use window.event
+    event = event || window.event; 
+    
+    // Prevent arrow keys from scrolling
+    if (event.keyCode == 38 || event.keyCode == 40){
+      event.preventDefault();
+    }
+
+    // Down arrow key
+    if (event.keyCode == 40) {
+      slideHighlighting(SlideDirectionEnum.DOWN); //On refactoring remove SlideDirection from global namespace
+      return;
+    }
+
+    // Up arrow key
+    if (event.keyCode == 38) {
+      slideHighlighting(SlideDirectionEnum.UP);
+      return;
+    }
+
+    // Enter key
+    if (event.keyCode == 13) {
+      activateTab(highlightIndex);
+    }
+
+    // Shift + backspace key - delete 1st tab
+    if (event.keyCode == 8 && event.shiftKey) {
+      event.preventDefault(); // Prevent delete key from deleting
+      if (document.getElementById('save_snap_menu').style.display == "initial") return;
+      closeTab(highlightIndex);
+    }
+
+    // Ctrl key - Active tab highlighted in tab list
+    if (event.keyCode == 17) {
+      highlightActiveTab();
+    }
+    });
+}
+
 function createTabElementssortable(){
   Sortable.create(tab_container,{
     animation: 200
@@ -58,52 +101,12 @@ function initializeApp(){
   //searchInputHandler
   searchInputHandler();
 
-  //Get All tabs
-  getAllTabs(initializeSearchVariables);
+  //Handle key press events
+  keyPresshandlers();
+
+  //Get all tabs.
+  getAllTabs();
 }
-
-// Listen for key events
-document.onkeydown = function(event) {
-
-  // use the value of event if available or
-  // if not assume it's IE and use window.event
-  event = event || window.event; 
-  
-  // Prevent arrow keys from scrolling
-  if (event.keyCode == 38 || event.keyCode == 40){
-    event.preventDefault();
-  }
-
-  // Down arrow key
-  if (event.keyCode == 40) {
-    slideHighlighting(SlideDirectionEnum.DOWN); //On refactoring remove SlideDirection from global namespace
-    return;
-  }
-
-  // Up arrow key
-  if (event.keyCode == 38) {
-    slideHighlighting(SlideDirectionEnum.UP);
-    return;
-  }
-
-  // Enter key - Not working
-  if (event.keyCode == 13) {
-    activateTab(highlightIndex);
-  }
-
-  // Shift + backspace key - delete 1st tab
-  if (event.keyCode == 8 && event.shiftKey) {
-    event.preventDefault(); // Prevent delete key from deleting
-    if (document.getElementById('save_snap_menu').style.display == "initial") return;
-    closeTab(highlightIndex);
-  }
-
-  // Ctrl key - Active tab highlighted in tab list
-  if (event.keyCode == 17) {
-    highlightActiveTab();
-  }
-};
-//End of keypress handlers
 
 function highlightActiveTab() {
   if (activeTabIndex == null) return;
@@ -117,7 +120,6 @@ function activateTab(tabIndex) {
   browser.windows.update(tab.windowId, { focused : true });
   browser.tabs.update(tab.tabId, {
     active: true
-    // highlighted: true
   });
   window.close();
 }
@@ -149,10 +151,10 @@ function reloadTab(tabIndex, event) {
   });
 }
 
-function getAllTabs(callback) {
+function getAllTabs() {
   browser.tabs.query({}, function(tabs) {
     browser.windows.getCurrent({}, function(windowData) {
-      callback(tabs, windowData.id);
+      initializeSearchVariables(tabs, windowData.id);
     });
   });
 }
@@ -302,7 +304,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   //Initializing all handlers
   initializeApp();
-
+  
   // Display the save snapshot menu
   // var showSaveSnapshotMenuButton = document.getElementById('save_snap_button');
   // showSaveSnapshotMenuButton.onclick = showSaveSnapshotMenu;
@@ -336,6 +338,5 @@ document.addEventListener('DOMContentLoaded', function() {
   // var overwriteSnapshotAllWindowsCheckbox = document.getElementById('overwrite_snapshot_all_windows_checkbox');
   // overwriteSnapshotActiveWindowCheckbox.onclick = toggleSnapshotTypeCheckbox.bind(null, overwriteSnapshotActiveWindowCheckbox, overwriteSnapshotAllWindowsCheckbox);
   // overwriteSnapshotAllWindowsCheckbox.onclick = toggleSnapshotTypeCheckbox.bind(null, overwriteSnapshotAllWindowsCheckbox, overwriteSnapshotActiveWindowCheckbox);
-
 
 });

@@ -115,7 +115,6 @@ function slideHighlighting(slideDirection) {
 
 //ENTRY GATE for highlighting tabs on hovering
 function highlightTabOnHover(tabIndex, event) {
-  
   var currentCursorPos = { 
     x: event.screenX, 
     y: event.screenY 

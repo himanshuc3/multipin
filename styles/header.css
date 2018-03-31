@@ -27,8 +27,7 @@ body {
 }
 
 b{
-  color: rgba(148,0,255,1);
-  font-weight: 400;
+  text-decoration: underline;
 }
 
 /*
