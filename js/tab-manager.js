@@ -66,6 +66,7 @@ function setupFeatures(){
   featureButtons[2].addEventListener("click", deleteTabsToLeft.bind(null));
   featureButtons[3].addEventListener("click", deleteTabsToRight.bind(null));
   featureButtons[4].addEventListener("click", reloadAll.bind(null));
+  featureButtons[5].addEventListener("click", muteAll.bind(null));
 }
 
 // Features Functions
@@ -122,6 +123,22 @@ function reloadAll(){
   browser.tabs.query({currentWindow: true}, function(tabs) {
     for(var tab of tabs){
       browser.tabs.reload(tab.id);
+    }
+  });
+}
+
+//Muting working well, unmuting not happening.
+function muteAll(){
+  browser.tabs.query({currentWindow: true}, function(tabs) {
+    var isMuted = (tabs[0].muted)?true:false;
+    if(isMuted){
+      for(var tab of tabs){
+        browser.tabs.update(tab.id,{muted:false});
+      }
+    }else{
+      for(var tab of tabs){
+        browser.tabs.update(tab.id,{muted:true});
+      }
     }
   });
 }
@@ -350,7 +367,8 @@ function initializeSearchVariables(tabs, activeWindowId) {
       tabId: tab.id,
       windowId: tab.windowId,
       iconUrl: tab.favIconUrl,
-      isActiveTab: (tab.active && tab.windowId == activeWindowId ? true : false)
+      isActiveTab: (tab.active && tab.windowId == activeWindowId ? true : false),
+      muted: tab.muted
     });
   }
 
