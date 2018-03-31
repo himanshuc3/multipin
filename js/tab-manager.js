@@ -300,16 +300,16 @@ function _searchTabsWithQuery(query) {
   return tabsToRender;
 }
 
-function renderRaw(){
-  var html = "<ul>";
-  var index = 1;
-  for(var tab of tabsToSearch){
-    html += "<li>" + index + "-" + tab.tabId +"-" + tab.title + "</li>";
-    index++;
-  }
-  html += "</ul>";
-  document.getElementById("test").innerHTML = html;
-}
+// function renderRaw(){
+//   var html = "<ul>";
+//   var index = 1;
+//   for(var tab of tabsToSearch){
+//     html += "<li>" + index + "-" + tab.tabId +"-" + tab.title + "</li>";
+//     index++;
+//   }
+//   html += "</ul>";
+//   document.getElementById("test").innerHTML = html;
+// }
 
 function initializeSearchVariables(tabs, activeWindowId) {
   for (let tab of tabs) {
