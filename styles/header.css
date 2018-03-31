@@ -85,11 +85,11 @@ b{
   margin-left: 5%;
   margin-bottom: 8px;
   padding: 8px 16px;
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
+  border-radius: 4px;
   font-weight: bold;
   font-size: 16px;
   margin-bottom: 0;
+  font-style: italic;
 }
 
 #search_box:focus {
@@ -112,7 +112,6 @@ b{
 */
 
 .features{
-  background: #4a4a4f;
   width: 90%;
   margin: 0 auto;
   margin-bottom: 16px;
@@ -126,7 +125,6 @@ b{
   background: transparent;
   border: none;
   font-size: 16px;
-  color: #ededf0;
 }
 
 .features button:hover{

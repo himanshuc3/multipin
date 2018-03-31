@@ -1,5 +1,70 @@
+var fuse; // used to perform the fuzzy search
+var tabsToSearch = []; 
+var tabsToRender = [];
+var highlightIndex = 1; //highlighted tab index in my addon
+var numTabs; 
+var activeTabIndex; //currently active tab index
+
+function createTabElementssortable(){
+  Sortable.create(tab_container,{
+    animation: 200
+  });
+}
+
+function setupFeatures(){
+  var featureButtons = document.getElementsByClassName("new_tab");
+  featureButtons[0].addEventListener("click", createTab.bind(null));
+}
+
+function toggleTheme(){
+  var toggly = document.getElementById("toggly");
+  var toggle = document.getElementsByClassName("toggle")[0];
+  var theme  = document.getElementById("theme");
+  toggly.addEventListener("click", function(){
+    if(theme.getAttribute("href") == "styles/themes/dark_theme.css"){
+      theme.href = "styles/themes/day_theme.css";
+    }else{
+      theme.href = "styles/themes/dark_theme.css";
+    }
+  });
+}
+
+function onMovingTabsInBrowser(){
+  browser.tabs.onMoved.addListener((tabId, moveInfo) => {});
+}
+
+function searchInputHandler(){
+  var tabSearchInputBox = document.getElementById('search_box');
+  tabSearchInputBox.focus();
+  tabSearchInputBox.oninput = searchTabs;
+}
+
+function initializeApp(){
+
+  //making tabs movable by the help of
+  //sortable library
+  createTabElementssortable();
+
+  //Setting up feature handlers for
+  //create tab, move tab to the beggining etc.
+  setupFeatures();
+
+  //Make the toggle button, toggle themes
+  toggleTheme();
+
+  //Attaching tabs moving handler
+  onMovingTabsInBrowser();
+
+  //searchInputHandler
+  searchInputHandler();
+
+  //Get All tabs
+  getAllTabs(initializeSearchVariables);
+}
+
 // Listen for key events
 document.onkeydown = function(event) {
+
   // use the value of event if available or
   // if not assume it's IE and use window.event
   event = event || window.event; 
@@ -9,15 +74,9 @@ document.onkeydown = function(event) {
     event.preventDefault();
   }
 
-  // Escape key
-  if (event.keyCode == 27) {
-    window.close();
-  }
-
-  //LOOK UP THESE FEATURES and SEE HOW THEY OPERATE
   // Down arrow key
   if (event.keyCode == 40) {
-    slideHighlighting(SlideDirectionEnum.DOWN);
+    slideHighlighting(SlideDirectionEnum.DOWN); //On refactoring remove SlideDirection from global namespace
     return;
   }
 
@@ -81,11 +140,6 @@ function closeTab(tabIndex, tabElement, event) {
     }
     slideHighlighting(SlideDirectionEnum.DOWN);
   });
-}
-
-function setupFeatures(){
-  var featureButtons = document.getElementsByClassName("new_tab");
-  featureButtons[0].addEventListener("click", createTab.bind(null));
 }
 
 function reloadTab(tabIndex, event) {
@@ -161,23 +215,9 @@ function makeTabElementsClickable() {
   }
 }
 
-function toggleTheme(){
-  var toggly = document.getElementById("toggly");
-  var toggle = document.getElementsByClassName("toggle")[0];
-  var theme  = document.getElementById("theme");
-  toggly.addEventListener("click", function(){
-    if(theme.getAttribute("href") == "styles/themes/dark_theme.css"){
-      theme.href = "styles/themes/day_theme.css";
-    }else{
-      theme.href = "styles/themes/dark_theme.css";
-    }
-  });
-}
-
 
 function searchTabs() {
   var searchText = document.getElementById('search_box').value;
-
   // tabsToRender; - Why was this line here. No reason!!!
   if (searchText.length === 0) {
     tabsToRender = _searchTabsNoQuery(tabsToSearch);
@@ -257,76 +297,45 @@ function hideElement(element) {
   element.style.display = "none";
 }
 
-
-var fuse; // used to perform the fuzzy search
-var tabsToSearch = [];
-var tabsToRender = [];
-var highlightIndex = 1;
-var numTabs;
-var activeTabIndex;
-
 //Starts code execution
 document.addEventListener('DOMContentLoaded', function() {
-  //Creating list to be sortable
-  Sortable.create(tab_container,{
-    animation: 200,
-    onEnd: function (evt) {
-      browser.tabs.Tab(function(tab){
-        tab
-      });
-    },
-  
-  });
 
-  //Setting up Feature handlers
-  setupFeatures();
-
-  //toggling theme
-  toggleTheme();
-
-  //on move
-  browser.tabs.onMoved.addListener((tabId, moveInfo) => {});
-
-
-  // Call searchTabs when user inputs in search box
-  var tabSearchInputBox = document.getElementById('search_box');
-  tabSearchInputBox.focus();
-  tabSearchInputBox.oninput = searchTabs;
+  //Initializing all handlers
+  initializeApp();
 
   // Display the save snapshot menu
-  var showSaveSnapshotMenuButton = document.getElementById('save_snap_button');
-  showSaveSnapshotMenuButton.onclick = showSaveSnapshotMenu;
+  // var showSaveSnapshotMenuButton = document.getElementById('save_snap_button');
+  // showSaveSnapshotMenuButton.onclick = showSaveSnapshotMenu;
 
   // Close the save snap menu
-  var saveSnapMenuElement = document.getElementById('save_snap_menu');
-  var cancelSaveSnapshotButton = document.getElementById('cancel_save_snap_button');
-  cancelSaveSnapshotButton.onclick = closeMenu.bind(null, saveSnapMenuElement);
+  // var saveSnapMenuElement = document.getElementById('save_snap_menu');
+  // var cancelSaveSnapshotButton = document.getElementById('cancel_save_snap_button');
+  // cancelSaveSnapshotButton.onclick = closeMenu.bind(null, saveSnapMenuElement);
 
   // Toggle checkboxes for selecting saving a snapshot of only the active window vs all windows
   // Default checkboxes do not go well with the theme of Gibbon Tabs. We use fontello icons for the checkboxes.
-  var snapshotActiveWindowCheckbox = document.getElementById('snapshot_only_active_window_checkbox');
-  var snapshotAllWindowsCheckbox = document.getElementById('snapshot_all_windows_checkbox');
-  snapshotActiveWindowCheckbox.onclick = toggleSnapshotTypeCheckbox.bind(null, snapshotActiveWindowCheckbox, snapshotAllWindowsCheckbox);
-  snapshotAllWindowsCheckbox.onclick = toggleSnapshotTypeCheckbox.bind(null, snapshotAllWindowsCheckbox, snapshotActiveWindowCheckbox);
+  // var snapshotActiveWindowCheckbox = document.getElementById('snapshot_only_active_window_checkbox');
+  // var snapshotAllWindowsCheckbox = document.getElementById('snapshot_all_windows_checkbox');
+  // snapshotActiveWindowCheckbox.onclick = toggleSnapshotTypeCheckbox.bind(null, snapshotActiveWindowCheckbox, snapshotAllWindowsCheckbox);
+  // snapshotAllWindowsCheckbox.onclick = toggleSnapshotTypeCheckbox.bind(null, snapshotAllWindowsCheckbox, snapshotActiveWindowCheckbox);
 
   // Save a snapshot
-  var submitSaveSnapshotButton = document.getElementById('submit_save_snap_button');
-  submitSaveSnapshotButton.onclick = saveSnapshot.bind(null, snapshotActiveWindowCheckbox);
+  // var submitSaveSnapshotButton = document.getElementById('submit_save_snap_button');
+  // submitSaveSnapshotButton.onclick = saveSnapshot.bind(null, snapshotActiveWindowCheckbox);
 
   // Display list of saved snapshots
-  var renderSnapsListButton = document.getElementById('get_snaps_button');
-  renderSnapsListButton.onclick = renderListOfSnapshots;
+  // var renderSnapsListButton = document.getElementById('get_snaps_button');
+  // renderSnapsListButton.onclick = renderListOfSnapshots;
 
   // Having the mouse leave the Overwrite snapshot widget closes it
-  var overwriteSnapshotWidget = document.getElementById('overwrite_snap_widget');
-  overwriteSnapshotWidget.onmouseleave = closeMenu.bind(null, overwriteSnapshotWidget);
+  // var overwriteSnapshotWidget = document.getElementById('overwrite_snap_widget');
+  // overwriteSnapshotWidget.onmouseleave = closeMenu.bind(null, overwriteSnapshotWidget);
 
   // Toggle checkboxes for selecting the granularity of overwriting a snapshot (active window vs all windows)
-  var overwriteSnapshotActiveWindowCheckbox = document.getElementById('overwrite_snapshot_only_active_window_checkbox');
-  var overwriteSnapshotAllWindowsCheckbox = document.getElementById('overwrite_snapshot_all_windows_checkbox');
-  overwriteSnapshotActiveWindowCheckbox.onclick = toggleSnapshotTypeCheckbox.bind(null, overwriteSnapshotActiveWindowCheckbox, overwriteSnapshotAllWindowsCheckbox);
-  overwriteSnapshotAllWindowsCheckbox.onclick = toggleSnapshotTypeCheckbox.bind(null, overwriteSnapshotAllWindowsCheckbox, overwriteSnapshotActiveWindowCheckbox);
+  // var overwriteSnapshotActiveWindowCheckbox = document.getElementById('overwrite_snapshot_only_active_window_checkbox');
+  // var overwriteSnapshotAllWindowsCheckbox = document.getElementById('overwrite_snapshot_all_windows_checkbox');
+  // overwriteSnapshotActiveWindowCheckbox.onclick = toggleSnapshotTypeCheckbox.bind(null, overwriteSnapshotActiveWindowCheckbox, overwriteSnapshotAllWindowsCheckbox);
+  // overwriteSnapshotAllWindowsCheckbox.onclick = toggleSnapshotTypeCheckbox.bind(null, overwriteSnapshotAllWindowsCheckbox, overwriteSnapshotActiveWindowCheckbox);
 
-  getAllTabs(initializeSearchVariables);
 
 });

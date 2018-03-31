@@ -1,5 +1,5 @@
 function getListOfTabSnapshotUIDs(callback) {
-  chrome.storage.sync.get("tabSnapshotUIDs", function(tabSnapsUUIDs) {
+  browser.storage.sync.get("tabSnapshotUIDs", function(tabSnapsUUIDs) {
     callback(tabSnapsUUIDs);
   });
 }
@@ -10,8 +10,8 @@ function _storeTabSnapshotUID(snapUID, callback) {
       tabSnapUIDsWrapper. tabSnapshotUIDs = { mapOfSnapUIDs: {} };
     }
     tabSnapUIDsWrapper.tabSnapshotUIDs.mapOfSnapUIDs[snapUID] = 1;
-    chrome.storage.sync.set({ "tabSnapshotUIDs": tabSnapUIDsWrapper.tabSnapshotUIDs }, function() {
-      if (chrome.runtime.lastError) {
+    browser.storage.sync.set({ "tabSnapshotUIDs": tabSnapUIDsWrapper.tabSnapshotUIDs }, function() {
+      if (browser.runtime.lastError) {
         console.log("Failed to store snapshot UID.");
         alert("Failed to save snapshot. You've created too many snapshots. Please delete some and try again.")
         return;
@@ -51,7 +51,7 @@ function _closeMenuWithResultMessage(button, operationSucceeded, menu) {
 }
 
 function getSnapshot(snapshotUID, tabSnapUUIDsList, listOfSnapshots, returnCallback) {
-  chrome.storage.sync.get(snapshotUID, function(snapshotWrapper) {
+  browser.storage.sync.get(snapshotUID, function(snapshotWrapper) {
     listOfSnapshots.push(snapshotWrapper[snapshotUID]);
     var nextUID = tabSnapUUIDsList.pop();
     if (nextUID !== undefined) {
@@ -84,12 +84,12 @@ function deleteTabSnap(tabSnapElement, event) {
 
   getListOfTabSnapshotUIDs(function(tabSnapUIDsWrapper) {
     delete tabSnapUIDsWrapper.tabSnapshotUIDs.mapOfSnapUIDs[tabSnapUID];
-    chrome.storage.sync.set({ "tabSnapshotUIDs": tabSnapUIDsWrapper.tabSnapshotUIDs }, function() {
+    browser.storage.sync.set({ "tabSnapshotUIDs": tabSnapUIDsWrapper.tabSnapshotUIDs }, function() {
       console.log("Removed snapshot UID.");
     });
   });
   var numOfTabSnaps = document.getElementsByClassName('tab_snap_box').length - 1;
-  chrome.storage.sync.remove(tabSnapUID, function() {
+  browser.storage.sync.remove(tabSnapUID, function() {
     if (numOfTabSnaps === 0) {
       var tabSnapContainer = tabSnapElement.parentNode;
       tabSnapContainer.innerHTML = "<p id=\"no_snaps_message\">You haven't saved any tab snapshots!</p>";
@@ -238,8 +238,8 @@ function saveSnapshot(snapshotActiveWindowCheckbox) {
     var snapshotKeyValueFormat = {};
     snapshotKeyValueFormat[snapUID] = newSnapshot;
 
-    chrome.storage.sync.set(snapshotKeyValueFormat, function() {
-      if (chrome.runtime.lastError) {
+    browser.storage.sync.set(snapshotKeyValueFormat, function() {
+      if (browser.runtime.lastError) {
         console.log("Failed to store snapshot. It's too large to sync.");
         alert("Failed to save snapshot. It's too large to sync. Please remove some tabs and try again.")
         _closeSaveSnapshotMenuOnSave(saveSnapshotButton, false);
@@ -250,7 +250,7 @@ function saveSnapshot(snapshotActiveWindowCheckbox) {
           tabSnapUIDsWrapper.tabSnapshotUIDs = { mapOfSnapUIDs: {} };
         }
         tabSnapUIDsWrapper.tabSnapshotUIDs.mapOfSnapUIDs[snapUID] = 1;
-        chrome.storage.sync.set(
+        browser.storage.sync.set(
           { "tabSnapshotUIDs": tabSnapUIDsWrapper.tabSnapshotUIDs },
           _storeTabSnapshotUID.bind(null, snapUID, _closeSaveSnapshotMenuOnSave.bind(null, saveSnapshotButton, true))
         );
@@ -271,9 +271,9 @@ function overwriteSnapshot(overrideSnapshotWithActiveWindowCheckbox, snapUID, ta
     var snapshotKeyValueFormat = {};
     snapshotKeyValueFormat[snapUID] = newSnapshot;
 
-    chrome.storage.sync.set(snapshotKeyValueFormat, function() {
+    browser.storage.sync.set(snapshotKeyValueFormat, function() {
       var overwriteSucceeded = true;
-      if (chrome.runtime.lastError) {
+      if (browser.runtime.lastError) {
         overwriteSucceeded = false;
         console.log("Failed to store snapshot. It's too large to sync.");
         alert("Failed to save snapshot. It's too large to sync. Please remove some tabs and try again.")

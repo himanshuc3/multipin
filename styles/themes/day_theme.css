@@ -15,18 +15,45 @@ body{
 */
 
 #tabs_name_div{
-    color: #9400ff;
+    color: rgb(148, 0, 255);
 }
 
+/*
+================================
+= features
+================================
+*/
 
+.features{
+    /* background: #4a4a4f; */
+}
+
+.features button{
+    color: #4a4a4f;
+}
 /*
 ================================
 = Search
 ================================
 */
 #search_box{
-    color: #0c0c0d;
+    color: rgb(12, 12, 13);
     background: #ededf0;
+    transition: all 0.5s;
+}
+#search_box:focus{
+    /* background: rgba(12, 12, 13,0.5); */
+    background: #4a4a4f;
+    color: #ededf0;
+}
+
+#search_box:focus + .fa-search{
+    /* background: rgba(12, 12, 13,0.5); */
+    color: #ededf0;
+}
+
+#tab_manager_menu_div .fa-search{
+    color: #4a4a4f;
 }
 
 /*
