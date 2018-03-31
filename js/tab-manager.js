@@ -50,7 +50,13 @@ function keyPresshandlers(){
 
 function createTabElementssortable(){
   Sortable.create(tab_container,{
-    animation: 200
+    animation: 200,
+    onEnd: function( event){
+      // alert(event.newIndex);
+      browser.tabs.move(tabsToSearch[event.item.getAttribute("data-tabnumber")-1].tabId,{
+        index: event.newIndex
+      });
+    }
   });
 }
 
@@ -262,6 +268,18 @@ function _searchTabsWithQuery(query) {
   return tabsToRender;
 }
 
+function renderRaw(){
+  // var test = document.getElementById("test");
+  // var html = "<ul>";
+  // var index = 1;
+  // for(var tab of tabsToSearch){
+  //   html += "<li>" + tab.tabId + "-"+ index+"-" + tab.title + "</li>";
+  //   index++;
+  // }
+  // html += "</ul>";
+  // test.innerHTML = html;
+}
+
 function initializeSearchVariables(tabs, activeWindowId) {
   for (let tab of tabs) {
     tabsToSearch.push({
@@ -274,6 +292,7 @@ function initializeSearchVariables(tabs, activeWindowId) {
     });
   }
 
+  renderRaw();
   var searchOpts = {
     shouldSort: true,
     keys: ["title", "url"],
