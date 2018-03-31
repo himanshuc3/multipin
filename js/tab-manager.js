@@ -92,6 +92,7 @@ function deleteTabsToLeft(){
 
   browser.tabs.query({currentWindow: true}, function(tabs) {
     for(var tab of tabs){
+      if(tab.pinned)continue;
       if(tab.active)break;
       browser.tabs.remove(tab.id);
     }
@@ -108,7 +109,8 @@ function deleteTabsToRight(){
         activeGone = true;
         continue;
       }
-      if(activeGone){
+
+      if(activeGone && !tab.pinned){
       browser.tabs.remove(tab.id);
       }
     }
