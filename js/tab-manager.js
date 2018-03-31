@@ -125,7 +125,7 @@ function createTabHtmlElement(tabData, tabIndex) {
   if (tabData.iconUrl === undefined) {
     return `<div class="tab" data-tabnumber=" ${tabIndex} " id="search_id_${tabIndex}"><img class="url_icon" src="../images/firefox.png"><div class="tab_title_container"><div class='title_text'> ${title} </div><div class="url_container"> ${url} </div></div><button class="menu_button_base close_tab_button" type="button"><i class="fas fa-times"></i></button></div>`;
   } else {
-    return "<div class=\"tab\" data-tabnumber=\"" + tabIndex + "\" id=\"search_id_" + tabIndex + "\"><img class=\"url_icon\" src=\"" + tabData.iconUrl + "\"><div class=\"tab_title_container\"><div class='title_text'>" + title + "</div><div class=\"url_container\">" + url + "</div></div><button class=\"reload\" type=\"button\"><i class=\"fas fa-redo-alt\"></i></button><button class=\"menu_button_base close_tab_button\" type=\"button\"><i class=\"fas fa-times\"></i></button></div>";
+    return "<div class=\"tab\" data-tabnumber=\"" + tabIndex + "\" id=\"search_id_" + tabIndex + "\"><img class=\"url_icon\" src=\"" + tabData.iconUrl + "\"><div class=\"tab_title_container\"><div class='title_text'>" + title + "</div><div class=\"url_container\">(" + tabIndex + ")" + url + "</div></div><button class=\"reload\" type=\"button\"><i class=\"fas fa-redo-alt\"></i></button><button class=\"menu_button_base close_tab_button\" type=\"button\"><i class=\"fas fa-times\"></i></button></div>";
   }
 }
 
@@ -269,7 +269,13 @@ var activeTabIndex;
 document.addEventListener('DOMContentLoaded', function() {
   //Creating list to be sortable
   Sortable.create(tab_container,{
-    animation: 200
+    animation: 200,
+    onEnd: function (evt) {
+      browser.tabs.Tab(function(tab){
+        tab
+      });
+    },
+  
   });
 
   //Setting up Feature handlers
@@ -277,6 +283,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
   //toggling theme
   toggleTheme();
+
+  //on move
+  browser.tabs.onMoved.addListener((tabId, moveInfo) => {});
+
 
   // Call searchTabs when user inputs in search box
   var tabSearchInputBox = document.getElementById('search_box');

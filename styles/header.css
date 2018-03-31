@@ -23,6 +23,7 @@ body {
   font-family: 'Open Sans';
   font-size: 75%;
   max-height: 400px;
+  overflow-y:hidden;
 }
 
 b{
@@ -47,6 +48,20 @@ b{
   font-size: 24px;
   font-family: "Open Sans";
   font-weight: 800;
+}
+
+/*
+================================
+= Bottom shadow
+================================
+*/
+
+.bottom_shadow{
+  position:absolute;
+  z-index: 101;
+  width: 100%;
+  height:20px;
+  bottom:0;
 }
 
 /*
@@ -130,9 +145,9 @@ b{
 
 #tab_container {
   white-space: pre;
-  text-overflow: ellipsis;
-  overflow: hidden;
+  overflow-y: scroll;
   clear: both;
+  height: 250px;
 }
 
 .tab {

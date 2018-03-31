@@ -31,6 +31,16 @@ body{
 
 /*
 ================================
+= bottom shadow
+================================
+*/
+
+.bottom_shadow{
+    background: linear-gradient(to top, white, transparent);
+}
+
+/*
+================================
 = Tab list Styles
 ================================
 */

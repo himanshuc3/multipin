@@ -1,5 +1,5 @@
 Tasks:
-    1. Theme switching with toggling.
+    1. Moving tabs made easy.
 
     2. Basic features
         - Creating a tab.
