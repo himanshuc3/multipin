@@ -52,7 +52,6 @@ function createTabElementssortable(){
   Sortable.create(tab_container,{
     animation: 200,
     onEnd: function( event){
-      // alert(event.newIndex);
       browser.tabs.move(tabsToSearch[event.item.getAttribute("data-tabnumber")-1].tabId,{
         index: event.newIndex
       });
