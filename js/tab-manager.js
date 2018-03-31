@@ -65,6 +65,7 @@ function setupFeatures(){
   featureButtons[1].addEventListener("click", moveStartEnd.bind(null));
   featureButtons[2].addEventListener("click", deleteTabsToLeft.bind(null));
   featureButtons[3].addEventListener("click", deleteTabsToRight.bind(null));
+  featureButtons[4].addEventListener("click", reloadAll.bind(null));
 }
 
 // Features Functions
@@ -113,6 +114,14 @@ function deleteTabsToRight(){
     }
   });
   // window.close();
+}
+
+function reloadAll(){
+  browser.tabs.query({currentWindow: true}, function(tabs) {
+    for(var tab of tabs){
+      browser.tabs.reload(tab.id);
+    }
+  });
 }
 //End of feature functions
 
