@@ -268,6 +268,7 @@ function makeTabElementsClickable() {
     tabIndex = tabElement.getAttribute('data-tabnumber');
     tabElement.onclick = activateTab.bind(null, tabIndex);
     tabElement.addEventListener("mouseover", highlightTabOnHover.bind(null, tabIndex));
+    // tabElement.addEventListener("mouseover", tabImage.bind(null, tabIndex));
     closeTabButton = tabElement.getElementsByClassName('close_tab_button');
     closeTabButton[0].addEventListener("click", closeTab.bind(null, tabIndex, tabElement));
       reloadButton = tabElement.getElementsByClassName("reload");
@@ -275,6 +276,12 @@ function makeTabElementsClickable() {
     tabIndex++;
   }
 }
+
+// function tabImage(tabIndex){
+//   browser.tabs.captureTab(tabsToSearch[tabIndex-1].tabId,{}).then((url)=>{
+//     document.getElementById("capture_tab").src= url;
+//   });
+// }
 
 
 function searchTabs() {
