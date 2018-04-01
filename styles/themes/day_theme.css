@@ -31,11 +31,12 @@ body{
 
 .features button{
     color: #4a4a4f;
-    transition: all 0.2s;
+    transition: all 0.3s;
 }
 
 .features button:hover{
     color: rgb(148, 0, 255);
+    transform: scale3d(1.5,1.5,1.5);
 }
 /*
 ================================
@@ -92,12 +93,20 @@ body{
 .reload {
     background: transparent;
     color: rgba(148,0,255,0.5);
-    transition: color 0.5s;
+    transition: all 0.3s;
 }
 
 .close_tab_button:hover,
 .reload:hover{
     color: #363959;
+}
+
+.reload:hover{
+    transform: rotateZ(360deg);
+}
+
+.close_tab_button:hover{
+    transform: scale3d(1.5,1.5,1.5);
 }
 
 

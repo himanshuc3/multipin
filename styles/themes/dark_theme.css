@@ -53,6 +53,11 @@ body{
 
 .features button{
     color: #008FFF;
+    transition: all 0.3s;
+}
+
+.features button:hover{
+    transform: scale3d(1.5,1.5,1.5);
 }
 
 /*
@@ -62,21 +67,31 @@ body{
 */
 
 .tab{
-    color: #7ed6df;
+    color: #008FFF;
     /* background: #6200a4; */
 }
 
 
 .url_container{
-    color: #7ed6df;
+    color: #008FFF;
 }
 
 .close_tab_button,
 .reload {
     background: transparent;
-    color: rgba(148,0,255,0.5);
-    transition: color 0.5s;
+    /* color: rgba(148,0,255,0.5); */
+    color: #008FFF;
+    transition: all 0.3s;
 }
+
+.reload:hover{
+    transform: rotateZ(360deg);
+}
+
+.close_tab_button:hover{
+    transform: scale3d(1.5,1.5,1.5);
+}
+
 
 .highlighted {
     cursor: pointer;
