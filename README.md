@@ -1,22 +1,53 @@
 # Multipin
 
-A Firefox extension to help you escape the tab hell and find your way around.
+A Firefox extension to help you escape the tabs hell and find your way around.
 
-<!-- <p align="center">
-  <a href="https://www.youtube.com/watch?v=X4AHNVJXIS0&t">
-    <img src="https://github.com/macadev/Gibbon-Tabs/blob/master/repo_images/gibbon_window.png" href="https://www.youtube.com/watch?v=X4AHNVJXIS0&t" width="450">
-  </a>
-  <br></br>
-  <em>Click on this image to see a 1 minute demo of Gibbon Tabs.</em>
-</p> -->
+<strong><a href="#">Firefox addons Store</a> | <a href="https://github.com/himanshuc3/multipin/archive/master.zip">Download ZIP</a></strong>
 
 ## Features
 
-### Tab Management
+### Themes
 
-- __Search and jump__ to tabs by title or URL.
-- __Quickly delete tabs__ while being able to see their title and URL.
-- __Keyboard shortcuts__ for navigation and tab deletion.
+2 themes available __currently__. 
+
+ - Default theme - __Clear Sky__
+ 
+ <p align="center">
+    <img src="#" width="550">
+ </p>
+ 
+ - Theme suitable for less pain on the eyes - __Midnight Blue__
+ 
+ <p align="center">
+    <img src="#" width="550">
+ </p>
+
+
+### Realtime Search functionality
+
+ <p align="center">
+    <img src="#" width="550">
+ </p>
+
+- Search through for open tabs quick and fast.
+ 
+### Make tabs your puppets
+
+ <p align="center">
+    <img src="#" width="550">
+ </p>
+ 
+- __Create Tab__ - Does what you think. Creates a new tab in the current window.
+- __First of last__ - Move the current tab to the beginning or last position in the current window.
+- __Eliminate Left__ - Delete all tabs to the left of current tab.
+- __Eliminate Right__ - Delete all tabs to the right of current tab.
+- __Reload All__ - Reload all tabs of current window.
+- __Mute All__ - Mute all tabs of current window.
+- __Restore Health__ - Not a good name. I know. Anyway, this features helps you restore last closed tab.
+- __Sortable__ - Drag and drop list tabs in the addon to move their position.
+- __Reload and Delete__ - Individual tab reloading and deletion.
+
+ __NOTE__: Got an idea about about an existing feature? Contact me at himichhabra14@gmail.com.
 
 ### Restore Previous Tab session
 
@@ -34,27 +65,8 @@ A Firefox extension to help you escape the tab hell and find your way around.
 
 - Mozilla Firefox.
 
-<!-- ## Installation
-
-- Go to the [Chrome Store page](https://chrome.google.com/webstore/detail/gibbon-tabs/bmkakdcikgcicahfkmcehpbhidhccfld) and install the extension.
-- __It is highly recommended that you assign a keyboard shortcut to the Gibbon Tabs extension.__
-  - In order to do this open [chrome://extensions](chrome://extensions) (type this URL in a new tab)
-  - Scroll to the bottom of the page and click on "Keyboard Shortcuts" (see image below).
-
-  <p align="center">
-    <img src="https://github.com/macadev/Gibbon-Tabs/blob/master/repo_images/key_short.png" width="550">
-  </p>
-
-  - Assign Gibbon Tabs a keyboard shortcut as shown in the image below.
-
-  <p align="center">
-    <img src="https://github.com/macadev/Gibbon-Tabs/blob/master/repo_images/assign_shortcut.png" width="500">
-  </p>
-
-  - Refresh the chrome://extension page and the shortcut will become active! -->
-
-<!-- ## Usage
-
+- Go to the [Mozilla Addons Page](https://addons.mozilla.org/en-US/firefox/) and search for extension.
+- __It is highly recommended that you assign a keyboard shortcut to the Multipin extension.__
 - Press the shortcut you assigned or click on the extension icon in your browser to activate it.
 - __Type to begin searching__. The search box is always highlighted.
 - Press <kbd>Enter</kbd> to activate a tab. Or click on it.
@@ -63,11 +75,13 @@ A Firefox extension to help you escape the tab hell and find your way around.
   - You can also delete tabs by clicking on the X at the right side of each tab in the list.
 - Press <kbd>Ctrl</kbd> while the extension is open to highlight the currently active tab.
   - When you haven't entered a search query the list shows all tabs ordered from left to right and by window. This lets you quickly find neighbouring tabs to the active window.
+<!--  
 - There are no shortcuts for "Tab Snapshots". Just use it once and you'll learn how it works!
 - When you open the "Tab Snapshots" dropdown you will see a list of all the snapshots you have saved.
   - Click on the "x" icon next to a snapshot name to delete it.
   - Click on the pencil icon to overwrite the contents of a snapshot.
     - Through this feature you can add new tabs to snapshots you have created in the past!
+-->
 
 ## Why do I need this?
 
@@ -78,39 +92,17 @@ _If you suffer from one of the following:_
 - The horrible confusion that ensues when the tab favicons disappear because you have too many open tabs. See below:
 
 <p align="center">
-  <img src="https://github.com/macadev/Gibbon-Tabs/blob/master/repo_images/tab_hell.png"/>
-  <em>Welcome to Tab Hell. You can go throw yourself in the lava pit now.</em>
+  <img src="#"/>
+  <em>Welcome to Tab Hell. You can go safely leave the planet now.</em>
 </p>
 
-- Heartache and wrist pain.
-
-_Then Gibbon Tabs is for You!_
-
-<p align="center">
-  <img src="https://github.com/macadev/Gibbon-Tabs/blob/master/repo_images/gibbon_chrome.png" height="600">
-  <br></br>
-  <em>You using Gibbon Tabs.</em>
-</p>
+- Heartache and wrist pain :smile:
 
 ## Some technical details
 
 - Fuzzy search library used: [Fuse](https://github.com/krisk/Fuse)
+- Sortable
 - I wanted to implement this without using any javascript frameworks. It's all pure javascript.
   - Some parts of the code got a bit Sphagetti-ed along the way. I don't have tons of experience with frontend. I learned a lot!
 - The CSS is a bit of a hack. I also learned a ton here.
 - What was the hardest part of this project? Writing this damn README.
-
-## Donate
-
-- If you love this project and want to help its continued development, consider donating some bitcoin to the following address [19R4F9Gas9S1Wa7Rw8UhppN5eBxyCLDpR2](https://blockchain.info/address/19R4F9Gas9S1Wa7Rw8UhppN5eBxyCLDpR2)
-  - Your donations will help me buy coffee and train rides to Montreal (A large chunk of this project was completed on the train to Montreal from Toronto, believe it or not. I am amazingly productive while on trains).
-  - I have many other ideas for developer tools that I think can have a pretty big impact on your workflow, so you can expect more awesome things to come.
-  - Thanks to the stranger who sent me 0.00123977 BTC. I made my first dollar on the internet! WOAH!
-
-## Version changes
-
-- __Latest version is 1.1.0__
-  - Changes:
-    - Ability to overwrite the contents of a snapshot!
-    - Use the pencil icon next to the Snapshot name in the Snapshots dropdown.
-    - This feature lets you modify the contents of snapshots you have created in the past. -->
