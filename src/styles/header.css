@@ -4,6 +4,41 @@
 ================================
 */
 
+@font-face {
+  font-family: 'OpenSans';
+  src: url('../Open_Sans/OpenSans-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+font-family: 'OpenSans';
+src: url('../Open_Sans/OpenSans-ExtraBold.ttf') format('truetype');
+font-weight: 800;
+font-style: normal;
+}
+
+@font-face {
+font-family: 'OpenSans';
+src: url('../Open_Sans/OpenSans-BoldItalic.ttf') format('truetype');
+font-weight: 700;
+font-style: italic;
+}
+
+@font-face {
+font-family: 'OpenSans';
+src: url('../Open_Sans/OpenSans-Bold.ttf') format('truetype');
+font-weight: 700;
+font-style: normal;
+} 
+
+@font-face {
+  font-family: 'OpenSans';
+  src: url('../Open_Sans/OpenSans-Italic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+  } 
+
 /*
 ================================
 = General Styles
@@ -20,7 +55,9 @@ body {
   margin: 0;
   padding:0;
   width: 300px;
-  font-family: 'Open Sans';
+  font-family: 'OpenSans';
+  font-weight: normal;
+  font-style: normal;
   font-size: 75%;
   max-height: 400px;
   overflow-y:hidden;
@@ -45,8 +82,8 @@ b{
   margin: 0px;
   padding: 8px 0;
   font-size: 24px;
-  font-family: "Open Sans";
   font-weight: 800;
+  font-style: normal;
 }
 
 /*
@@ -86,7 +123,7 @@ b{
   padding: 8px 16px;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
-  font-weight: bold;
+  font-weight: 800;
   font-size: 16px;
   margin-bottom: 0;
   font-style: italic;
@@ -182,7 +219,7 @@ b{
   overflow: hidden;
   font-size: 12px;
   font-weight: 700;
-  /* letter-spacing: -1px; */
+  font-style: normal;
   width: 60%;
 }
 
@@ -216,6 +253,7 @@ b{
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
+  font-weight: normal;
   font-style: italic;
 }
 

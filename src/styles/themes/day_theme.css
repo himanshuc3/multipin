@@ -92,14 +92,10 @@ body{
 .close_tab_button,
 .reload {
     background: transparent;
-    color: rgba(148,0,255,0.5);
+    color: #363959;
     transition: all 0.3s;
 }
 
-.close_tab_button:hover,
-.reload:hover{
-    color: #363959;
-}
 
 .reload:hover{
     transform: rotateZ(360deg);
