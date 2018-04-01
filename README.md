@@ -13,20 +13,20 @@ A Firefox extension to help you escape the tabs hell and find your way around.
  - Default theme - __Clear Sky__
  
  <p align="center">
-    <img src="/repo_images/day.png" width="550">
+    <img src="/repo_images/day.png" width="311">
  </p>
  
  - Theme suitable for less pain on the eyes - __Midnight Blue__
  
  <p align="center">
-    <img src="https://github.com/himanshuc3/multipin/tree/master/repo_images/midnight_blue.png" width="550">
+    <img src="repo_images/midnight_blue.png" width="308">
  </p>
 
 
 ### Realtime Search functionality
 
  <p align="center">
-    <img src="https://github.com/himanshuc3/multipin/tree/master/repo_images/search.png" width="550">
+    <img src="repo_images/search.png" width="301">
  </p>
 
 - Search through for open tabs quick and fast.
@@ -34,7 +34,7 @@ A Firefox extension to help you escape the tabs hell and find your way around.
 ### Make tabs your puppets
 
  <p align="center">
-    <img src="https://github.com/himanshuc3/multipin/tree/master/repo_images/features.png" width="550">
+    <img src="repo_images/features.png" width="272">
  </p>
  
 - __Create Tab__ - Does what you think. Creates a new tab in the current window.
@@ -92,7 +92,7 @@ _If you suffer from one of the following:_
 - The horrible confusion that ensues when the tab favicons disappear because you have too many open tabs. See below:
 
 <p align="center">
-  <img src="https://github.com/himanshuc3/multipin/tree/master/repo_images/tab_hell.png"/>
+  <img src="repo_images/tab_hell.png"/>
   <em>Welcome to Tab Hell. You can go safely leave the planet now.</em>
 </p>
 
