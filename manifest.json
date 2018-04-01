@@ -22,7 +22,7 @@
     "default_popup": "popup.html"
   },
   "background": {
-    "scripts": ["js/background.js"]
+    "scripts": ["dest/js/background.js"]
   }
 
 }
