@@ -13,7 +13,7 @@ A Firefox extension to help you escape the tabs hell and find your way around.
  - Default theme - __Clear Sky__
  
  <p align="center">
-    <img src="https://github.com/himanshuc3/multipin/tree/master/repo_images/day.png" width="550">
+    <img src="https://github.com/himanshuc3/multipin/repo_images/day.png" width="550">
  </p>
  
  - Theme suitable for less pain on the eyes - __Midnight Blue__
