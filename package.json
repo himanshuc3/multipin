@@ -18,8 +18,10 @@
   "homepage": "https://github.com/himanshuc3/multipin#readme",
   "devDependencies": {
     "gulp": "3.9.1",
+    "gulp-changed": "3.2.0",
     "gulp-clean-css": "3.9.3",
     "gulp-concat": "2.6.1",
+    "gulp-imagemin": "4.1.0",
     "gulp-minify": "2.1.0"
   }
 }

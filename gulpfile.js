@@ -2,6 +2,8 @@ var gulp = require('gulp');
 var concat = require('gulp-concat');
 var minify = require('gulp-minify');
 var cleanCss = require('gulp-clean-css');
+var changed = require('gulp-changed');
+var imagemin = require('gulp-imagemin');
  
 gulp.task('pack-js', function () {	
     return gulp.src(['src/libs/sortable.min.js',
@@ -36,9 +38,19 @@ gulp.task('minify-themes', function () {
 		.pipe(gulp.dest('dest/css'))
 });
 
+gulp.task('imagemin', function() {
+    var imgSrc = 'src/images/*.+(png|jpg|svg)',
+    imgDst = 'dest/images';
+    
+    gulp.src(imgSrc)
+    .pipe(changed(imgDst))
+    .pipe(imagemin())
+    .pipe(gulp.dest(imgDst));
+ });
+
 // gulp.task('watch', function() {
 //     gulp.watch('src/', ['pack-js', 'pack-css', 'minify-themes']);
 // });
 
-gulp.task('default', ['pack-js', 'pack-css', 'minify-themes']);
+gulp.task('default', ['pack-js', 'pack-css', 'minify-themes', 'imagemin']);
 // gulp.task('default', ['watch']);

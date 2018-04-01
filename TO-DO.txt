@@ -1,10 +1,4 @@
 Tasks:
-    1. Moving tabs made easy.
 
-    2. Basic features
-        - Creating a tab.
-        - Deleting all tabs to the right/left.
-        - Moving tab to front/end.
-
-    3. Snapshot of all current tabs to save for later.
+    1. Snapshot of all current tabs to save for later.
     
