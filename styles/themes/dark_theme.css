@@ -6,6 +6,7 @@
 body{
     color: #c8d6e5;
     background: #130f40;
+    /* filter: invert(100%); */
 }
 
 /*
@@ -57,7 +58,7 @@ body{
 }
 
 .features button:hover{
-    transform: scale3d(1.5,1.5,1.5);
+    transform: scale3d(1.2,1.2,1.2);
 }
 
 /*
@@ -89,7 +90,7 @@ body{
 }
 
 .close_tab_button:hover{
-    transform: scale3d(1.5,1.5,1.5);
+    transform: scale3d(1.2,1.2,1.2);
 }
 
 

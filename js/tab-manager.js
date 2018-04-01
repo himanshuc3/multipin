@@ -53,7 +53,7 @@ function createTabElementssortable(){
     animation: 200,
     onEnd: function(event){
       browser.tabs.move(tabsToSearch[event.item.getAttribute("data-tabnumber")-1].tabId,{
-        index: event.newIndex
+        index: event.newIndex,
       });
     }
   });

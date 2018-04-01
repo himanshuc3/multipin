@@ -36,7 +36,7 @@ body{
 
 .features button:hover{
     color: rgb(148, 0, 255);
-    transform: scale3d(1.5,1.5,1.5);
+    transform: scale3d(1.2,1.2,1.2);
 }
 /*
 ================================
@@ -106,14 +106,12 @@ body{
 }
 
 .close_tab_button:hover{
-    transform: scale3d(1.5,1.5,1.5);
+    transform: scale3d(1.2,1.2,1.2);
 }
 
 
 .highlighted {
     cursor: pointer;
-    /* background: rgba(148, 0, 255,0.2); */
-    /* background: rgba(0,0,0,0.1); */
     background: #ededf0;
     border-left: 3px solid rgba(148,0,255,1);
 }
