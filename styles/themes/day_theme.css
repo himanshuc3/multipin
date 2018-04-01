@@ -15,7 +15,8 @@ body{
 */
 
 #tabs_name_div{
-    color: rgb(148, 0, 255);
+    /* color: rgb(148, 0, 255); */
+    color: #363959;
 }
 
 /*
@@ -25,11 +26,16 @@ body{
 */
 
 .features{
-    /* background: #4a4a4f; */
+    background: #ededf0;
 }
 
 .features button{
     color: #4a4a4f;
+    transition: all 0.2s;
+}
+
+.features button:hover{
+    color: rgb(148, 0, 255);
 }
 /*
 ================================
@@ -96,6 +102,8 @@ body{
 
 .highlighted {
     cursor: pointer;
-    background: rgba(148, 0, 255,0.2);
+    /* background: rgba(148, 0, 255,0.2); */
+    /* background: rgba(0,0,0,0.1); */
+    background: #ededf0;
     border-left: 3px solid rgba(148,0,255,1);
 }

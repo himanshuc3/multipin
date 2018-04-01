@@ -67,6 +67,7 @@ function setupFeatures(){
   featureButtons[3].addEventListener("click", deleteTabsToRight.bind(null));
   featureButtons[4].addEventListener("click", reloadAll.bind(null));
   featureButtons[5].addEventListener("click", muteAll.bind(null));
+  featureButtons[6].addEventListener("click", restoreLastClosedTab.bind(null));
 }
 
 // Features Functions
@@ -139,6 +140,23 @@ function muteAll(){
       for(var tab of tabs){
         browser.tabs.update(tab.id,{muted:true});
       }
+    }
+  });
+}
+
+function restoreLastClosedTab(){
+  browser.sessions.getRecentlyClosed({
+    maxResults: 1
+  }).then((sessionInfos)=>{
+    if (!sessionInfos.length) {
+      console.log("No sessions found")
+      return;
+    }
+    let sessionInfo = sessionInfos[0];
+    if (sessionInfo.tab) {
+      browser.sessions.restore(sessionInfo.tab.sessionId);
+    } else {
+      browser.sessions.restore(sessionInfo.window.sessionId);
     }
   });
 }
