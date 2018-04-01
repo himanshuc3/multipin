@@ -168,10 +168,10 @@ function toggleTheme(){
   var toggle = document.getElementsByClassName("toggle")[0];
   var theme  = document.getElementById("theme");
   toggly.addEventListener("click", function(){
-    if(theme.getAttribute("href") == "styles/themes/dark_theme.css"){
-      theme.href = "styles/themes/day_theme.css";
+    if(theme.getAttribute("href") == "dest/css/dark_theme.css"){
+      theme.href = "dest/css/day_theme.css";
     }else{
-      theme.href = "styles/themes/dark_theme.css";
+      theme.href = "dest/css/dark_theme.css";
     }
   });
 }

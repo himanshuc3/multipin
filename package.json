@@ -1,0 +1,25 @@
+{
+  "name": "multipin",
+  "version": "1.0.0",
+  "description": "A Firefox extension to help you escape the tabs hell and find your way around.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/himanshuc3/multipin.git"
+  },
+  "author": "Himanshu chhabra <himichhabra14@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/himanshuc3/multipin/issues"
+  },
+  "homepage": "https://github.com/himanshuc3/multipin#readme",
+  "devDependencies": {
+    "gulp": "3.9.1",
+    "gulp-clean-css": "3.9.3",
+    "gulp-concat": "2.6.1",
+    "gulp-minify": "2.1.0"
+  }
+}

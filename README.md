@@ -11,7 +11,7 @@ A Firefox extension to help you escape the tabs hell and find your way around.
 2 themes available __currently__. 
 
  <p align="center">
-    <img src="/repo_images/day.png" width="311">
+    <img src="/repo_images/day.png" width="311"><br>
     <em>Default theme - Clear Sky</em>
  </p>
  

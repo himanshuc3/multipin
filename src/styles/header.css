@@ -164,6 +164,7 @@ b{
 #tab_container {
   white-space: pre;
   overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
   clear: both;
   height: 250px;
   /* box-shadow: inset 0 0 10px #000000; */
