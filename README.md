@@ -101,8 +101,6 @@ _If you suffer from one of the following:_
 ## Some technical details
 
 - Fuzzy search library used: [Fuse](https://github.com/krisk/Fuse)
-- Sortable
-- I wanted to implement this without using any javascript frameworks. It's all pure javascript.
-  - Some parts of the code got a bit Sphagetti-ed along the way. I don't have tons of experience with frontend. I learned a lot!
-- The CSS is a bit of a hack. I also learned a ton here.
-- What was the hardest part of this project? Writing this damn README.
+- Sortable - Drag and Drop Functionality: [Sortable](http://rubaxa.github.io/Sortable/)
+- FontAwesome - Free icons provider. Some awesome paid icons available too: [FontAwesome](https://fontawesome.com/)
+- Hardest part of this project, you ask? Writing this damn README.
