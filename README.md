@@ -11,14 +11,13 @@ A Firefox extension to help you escape the tabs hell and find your way around.
 2 themes available __currently__. 
 
  <p align="center">
-    <img src="/repo_images/day.png" width="311">
+    <img src="/repo_images/day.png" width="311"><br>
     <em>Default theme - Clear Sky</em>
  </p>
  
- - 
  
  <p align="center">
-    <img src="repo_images/midnight_blue.png" width="308">
+    <img src="repo_images/midnight_blue.png" width="308"><br>
     <em>Theme suitable for less stress on the eyes - Midnight Blue</em>
  </p>
 
@@ -26,10 +25,10 @@ A Firefox extension to help you escape the tabs hell and find your way around.
 ### Realtime Search functionality
 
  <p align="center">
-    <img src="repo_images/search.png" width="301">
+    <img src="repo_images/search.png" width="301"><br>
+    <em>Search through for open tabs quick and fast</em>
  </p>
 
-- Search through for open tabs quick and fast.
  
 ### Make tabs your puppets
 
