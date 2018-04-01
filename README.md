@@ -10,16 +10,16 @@ A Firefox extension to help you escape the tabs hell and find your way around.
 
 2 themes available __currently__. 
 
- - Default theme - __Clear Sky__
- 
  <p align="center">
     <img src="/repo_images/day.png" width="311">
+    <em>Default theme - Clear Sky</em>
  </p>
  
- - Theme suitable for less pain on the eyes - __Midnight Blue__
+ - 
  
  <p align="center">
     <img src="repo_images/midnight_blue.png" width="308">
+    <em>Theme suitable for less stress on the eyes - Midnight Blue</em>
  </p>
 
 
@@ -32,6 +32,7 @@ A Firefox extension to help you escape the tabs hell and find your way around.
 - Search through for open tabs quick and fast.
  
 ### Make tabs your puppets
+
 
  <p align="center">
     <img src="repo_images/features.png" width="272">
