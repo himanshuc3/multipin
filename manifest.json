@@ -5,9 +5,9 @@
   "version": "1.0",
   "homepage_url": "https://github.com/himanshuc3/multipin",
   "icons": {
-    "16": "dest/images/logo.svg",
-    "48": "dest/images/logo.svg",
-    "128": "dest/images/logo.svg"
+    "16": "dest/images/technology.svg",
+    "48": "dest/images/technology.svg",
+    "128": "dest/images/technology.svg"
   },
 
   "permissions": [
@@ -18,7 +18,7 @@
   ],
 
   "browser_action": {
-    "default_icon": "dest/images/logo.svg",
+    "default_icon": "dest/images/technology.svg",
     "default_title": "Multipin",
     "default_popup": "popup.html"
   },
