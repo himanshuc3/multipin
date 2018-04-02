@@ -4,6 +4,7 @@ var tabsToRender = [];
 var highlightIndex = 1; //highlighted tab index in my addon
 var numTabs; 
 var activeTabIndex; //currently active tab index
+var isMuted = false;
 
 function keyPresshandlers(){
 
@@ -133,15 +134,16 @@ function reloadAll(){
 //Muting working well, unmuting not happening.
 function muteAll(){
   browser.tabs.query({currentWindow: true}, function(tabs) {
-    var isMuted = (tabs[0].muted)?true:false;
     if(isMuted){
       for(var tab of tabs){
         browser.tabs.update(tab.id,{muted:false});
       }
+      isMuted = false;
     }else{
       for(var tab of tabs){
         browser.tabs.update(tab.id,{muted:true});
       }
+      isMuted = true;
     }
   });
 }
