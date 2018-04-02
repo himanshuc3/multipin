@@ -10,7 +10,6 @@ gulp.task('pack-js', function () {
                         'src/libs/fuse.min.js',
                         'src/js/utils.js',
                         'src/js/highlight.js',
-                        'src/js/snapshot.js',
                         'src/js/tab-manager.js'])
         .pipe(concat('bundle.js'))
         .pipe(minify({
@@ -61,7 +60,7 @@ gulp.task('imagemin', function() {
  });
 
 // gulp.task('watch', function() {
-//     gulp.watch('src/', ['pack-js', 'pack-css', 'minify-themes']);
+//     gulp.watch('src/*', ['pack-js', 'pack-css', 'minify-themes']);
 // });
 
 gulp.task('default', ['pack-js',

@@ -68,6 +68,8 @@ function setupFeatures(){
   featureButtons[4].addEventListener("click", reloadAll.bind(null));
   featureButtons[5].addEventListener("click", muteAll.bind(null));
   featureButtons[6].addEventListener("click", restoreLastClosedTab.bind(null));
+  featureButtons[7].addEventListener("click", saveSnapshot.bind(null));
+  featureButtons[8].addEventListener("click", retrieveSnapshots.bind(null));
 }
 
 // Features Functions
@@ -160,6 +162,35 @@ function restoreLastClosedTab(){
     }
   });
 }
+
+function saveSnapshot(){
+
+  getAllTabs(function(tabs, activeWindowId) {
+    var currentWindowTabs = [];
+    for(var tab of tabs){
+      if(tab.windowId == activeWindowId){
+        currentWindowTabs.push(tab);
+      }
+    }
+
+    var obj = {
+    tabs: currentWindowTabs
+    };
+
+    browser.storage.local.set({obj});
+  });
+
+}
+
+function retrieveSnapshots(){
+  browser.storage.local.get("obj").then((item)=>{
+    for(var tab of item.obj.tabs){
+      browser.tabs.create({
+        url: tab.url
+      });
+    } 
+  });
+}
 //End of feature functions
 
 
@@ -209,7 +240,7 @@ function initializeApp(){
   keyPresshandlers();
 
   //Get all tabs.
-  getAllTabs();
+  getAllTabs(initializeSearchVariables);
 }
 
 function highlightActiveTab() {
@@ -255,10 +286,10 @@ function reloadTab(tabIndex, event) {
   });
 }
 
-function getAllTabs() {
+function getAllTabs(callback) {
   browser.tabs.query({}, function(tabs) {
     browser.windows.getCurrent({}, function(windowData) {
-      initializeSearchVariables(tabs, windowData.id);
+      callback(tabs, windowData.id);
     });
   });
 }

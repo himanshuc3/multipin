@@ -13,7 +13,8 @@
   "permissions": [
     "tabs",
     "<all_urls>",
-    "sessions"
+    "sessions",
+    "storage"
   ],
 
   "browser_action": {

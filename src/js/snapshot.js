@@ -3,7 +3,7 @@ function getListOfTabSnapshotUIDs(callback) {
     callback(tabSnapsUUIDs);
   });
 }
-
+ 
 function _storeTabSnapshotUID(snapUID, callback) {
   getListOfTabSnapshotUIDs(function(tabSnapUIDsWrapper) {
     if (tabSnapUIDsWrapper.tabSnapshotUIDs === undefined) {

@@ -173,9 +173,9 @@ b{
   padding-right: 14px;
 }
 
-.feature_buttons:nth-child(7){
-  padding-right: 0;
-}
+/* .feature_buttons:nth-child(7){
+  padding-right: 0px;
+} */
 
 
 /*
