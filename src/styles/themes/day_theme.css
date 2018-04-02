@@ -59,7 +59,26 @@ body{
     color: #ededf0;
 }
 
-#tab_manager_menu_div .fa-search{
+#search_box:focus ~ .fa-camera,
+#search_box:focus ~ .fa-database{
+    color: #ededf0;
+}
+
+#snap_get,
+#snap_set{
+    transition: transform 0.3s;
+}
+
+#snap_set:hover,
+#snap_get:hover{
+    color: rgb(148, 0, 255);
+    transform: scale3d(1.2,1.2,1.2);
+}
+
+
+#tab_manager_menu_div .fa-search,
+#snap_set,
+#snap_get{
     color: #4a4a4f;
 }
 

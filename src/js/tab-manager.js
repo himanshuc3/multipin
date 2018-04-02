@@ -68,8 +68,8 @@ function setupFeatures(){
   featureButtons[4].addEventListener("click", reloadAll.bind(null));
   featureButtons[5].addEventListener("click", muteAll.bind(null));
   featureButtons[6].addEventListener("click", restoreLastClosedTab.bind(null));
-  featureButtons[7].addEventListener("click", saveSnapshot.bind(null));
-  featureButtons[8].addEventListener("click", retrieveSnapshots.bind(null));
+  document.getElementById("snap_set").addEventListener("click", saveSnapshot.bind(null));
+  document.getElementById("snap_get").addEventListener("click", retrieveSnapshots.bind(null));
 }
 
 // Features Functions

@@ -108,6 +108,7 @@ b{
 
 .tab_manager_menu_div{
   width: 100%;
+  font-size: 16px;
 }
 
 .search_box_base {
@@ -127,6 +128,7 @@ b{
   font-size: 16px;
   margin-bottom: 0;
   font-style: italic;
+  padding-right: 70px;
 }
 
 #search_box:focus {
@@ -135,11 +137,30 @@ b{
 
 #tab_manager_menu_div { position: relative; }
 #tab_manager_menu_div input { text-indent: 30px;}
-#tab_manager_menu_div .fa-search { 
+#tab_manager_menu_div .fa-search,
+#tab_manager_menu_div .fa-camera,
+#tab_manager_menu_div .fa-database { 
   position: absolute;
+  z-index: 1000;
   top: 10px;
-  left: 36px;
   font-size: 16px;
+}
+
+#snap_set:hover,
+#snap_get:hover{
+  cursor: pointer;
+}
+
+#tab_manager_menu_div .fa-search{
+  left: 36px;
+}
+
+#tab_manager_menu_div .fa-camera{
+  right: 60px;
+}
+
+#tab_manager_menu_div .fa-database{
+  right: 32px;
 }
 
 /*
@@ -259,9 +280,10 @@ b{
 
 .close_tab_button {
   position: absolute;
-  top: 20px;
+  top: 25px;
   right: 12px;
   font-size: 16px;
+  border: none;
 }
 
 .reload{

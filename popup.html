@@ -14,18 +14,20 @@
     <header>
       <!-- <img src="" alt="" id ="capture_tab"> -->
       <div id="test" hidden></div>
-        <div class="toggle">
-            <input type="checkbox" id="toggly">
-            <label for="toggly"><i></i></label>
-        </div>
-        <div class="bottom_shadow">
-        </div>
+      <div class="toggle">
+        <input type="checkbox" id="toggly">
+        <label for="toggly"><i></i></label>
+      </div>
+      <div class="bottom_shadow">
+      </div>
       <div id="tabs_name_div">
         <h3 id="tabs_name">MULTIPIN</h3>
       </div>
       <div id="tab_manager_menu_div">
         <input id="search_box" class="search_box_base" type="text" placeholder="Search tab.." >
         <i class="fas fa-search"></i>
+        <i class="fas fa-camera" id="snap_set"></i>
+        <i class="fas fa-database" id="snap_get"></i>
         <div class="features">
             <button class="feature_buttons" title="Create new tab"><i class="fas fa-plus one"></i></button>
             <button class="feature_buttons" title="Move current tab to beginning/end"><i class="fas fa-exchange-alt"></i></button>
@@ -34,36 +36,9 @@
             <button class="feature_buttons" title="Reload All Tabs"><i class="fas fa-sync-alt"></i></button>
             <button class="feature_buttons" title="Mute all tabs"><i class="fas fa-volume-off"></i></button>
             <button class="feature_buttons" title="Restore last closed tab"><i class="fas fa-window-restore"></i></button>
-            <button class="feature_buttons" title="Snapshot"><i class="fas fa-camera"></i></button>
-            <button class="feature_buttons" title="Retrieve Snapshot tabs"><i class="fas fa-database"></i></button>
         </div>
-        <button id="save_snap_button" class="snap_control_button" type="button" hidden><i class="demo-icon icon-camera-alt"></i></button>
-        <button id="get_snaps_button" class="snap_control_button" type="button" hidden><i class="demo-icon icon-folder-open"></i></button>
       </div>
     </header>
-    <div id="tab_snaps_dropdown" class="snap_action_base"></div>
-    <div id="save_snap_menu" class="snap_action_base">
-      <div id="save_snap_menu_container">
-        <input id="save_snap_name_input" class="search_box_base" type="text" placeholder="Snapshot name...">
-        <div>
-          <i id="snapshot_only_active_window_checkbox" class="demo-icon icon-ok-squared snap_checkbox" aria-hidden="true"></i><span class="snapshot_checkbox_message">Active Window</span><br>
-          <i id="snapshot_all_windows_checkbox" class="demo-icon icon-blank snap_checkbox" aria-hidden="true"></i><span class="snapshot_checkbox_message">All Windows</span><br>
-          <button id="submit_save_snap_button" class="menu_button_base" type="button">Save</button>
-          <button id="cancel_save_snap_button" class="menu_button_base" type="button">Cancel</button>
-        </div>
-      </div>
-    </div>
     <div id="tab_container"></div>
-    <div id="overwrite_snap_widget" class="snap_action_base">
-      <div id="overwrite_snap_widget_contents">
-        <p class="snap_action_title">Overwrite Snapshot</p>
-        <p id="overwrite_snapshot_explanation">Overwrite contents of Snapshot "<span id="snap_to_overwrite_placeholder"></span>" with tabs from:</p>
-        <div>
-          <i id="overwrite_snapshot_only_active_window_checkbox" class="demo-icon icon-ok-squared snap_checkbox" aria-hidden="true"></i><span class="snapshot_checkbox_message">Active Window</span><br>
-          <i id="overwrite_snapshot_all_windows_checkbox" class="demo-icon icon-blank snap_checkbox" aria-hidden="true"></i><span class="snapshot_checkbox_message">All Windows</span><br>
-          <button id="submit_overwrite_snap_button" class="menu_button_base" type="button">Overwrite</button>
-        </div>
-      </div>
-    </div>
   </body>
 </html>

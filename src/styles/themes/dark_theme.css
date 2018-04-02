@@ -30,6 +30,17 @@ body{
     background: rgba(48, 51, 107,1);
 }
 
+#snap_get,
+#snap_set{
+    color: #008FFF;
+    transition: transform 0.3s;
+}
+
+#snap_get:hover,
+#snap_set:hover{
+    transform: scale3d(1.2,1.2,1.2);
+}
+
 
 /*
 ================================
