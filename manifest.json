@@ -24,6 +24,11 @@
   },
   "background": {
     "scripts": ["dest/js/background.js"]
+  },
+  "applications": {
+    "gecko": {
+      "id": "{C0521136-367B-11E8-B931-7870A8B3674F}"
+    }
   }
 
 }
