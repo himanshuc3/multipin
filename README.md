@@ -2,7 +2,7 @@
 
 A Firefox extension to help you escape the tabs hell and find your way around.
 
-<strong><a href="#">Firefox addons Store</a> | <a href="https://github.com/himanshuc3/multipin/archive/master.zip">Download ZIP</a></strong>
+<strong><a href="https://addons.mozilla.org/en-US/firefox/addon/multipin/?src=search">Firefox addons Store</a> | <a href="https://github.com/himanshuc3/multipin/archive/master.zip">Download ZIP</a></strong>
 
 ## Features
 
