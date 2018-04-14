@@ -100,9 +100,19 @@ body{
 
 .tab{
     color: #0c0c0d;
-    /* background: #6200a4; */
+    border-bottom: 1px solid rgba(169,169,169,0.2);
 }
 
+.tab:nth-child(1){
+    border-top: 1px solid rgba(169,169,169,0.2);
+  }
+
+.tab_buttons{
+    border-right: 15px solid #ededf0;
+    border-bottom: 10px solid #ededf0;
+    background: #ededf0;
+    /* border: 1px solid black; */
+}
 
 .url_container{
     color: #363959;
@@ -110,18 +120,20 @@ body{
 
 .close_tab_button,
 .reload {
-    background: transparent;
+    /* background: rgba(189, 189, 189,1); */
     color: #363959;
     transition: all 0.3s;
 }
 
 
 .reload:hover{
-    transform: rotateZ(360deg);
+    transform: rotateZ(360deg) scale3d(1.2,1.2,1.2);
+    color: rgb(148, 0, 255);
 }
 
 .close_tab_button:hover{
     transform: scale3d(1.2,1.2,1.2);
+    color: rgb(148, 0, 255);
 }
 
 

@@ -23,4 +23,11 @@ browser.tabs.onCreated.addListener(
 browser.browserAction.onClicked.addListener(function(tab) {
     chrome.tabs.create({'url': chrome.extension.getURL('background.html')});
 });
+
+// browser.commands.onCommand.addListener(function(command) {
+//     if (command == "open-popup") {
+//       console.log("toggling the feature!");
+//     }
+// });
+
 updateCount();

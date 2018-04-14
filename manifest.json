@@ -4,18 +4,22 @@
   "name": "Multipin",
   "version": "1.0",
   "homepage_url": "https://github.com/himanshuc3/multipin",
-  "icons": {
-    "16": "dest/images/technology.svg",
-    "48": "dest/images/technology.svg",
-    "128": "dest/images/technology.svg"
+  "applications": {
+    "gecko": {
+      "id": "{C0521136-367B-11E8-B931-7870A8B3674F}"
+    }
   },
-
   "permissions": [
     "tabs",
     "<all_urls>",
     "sessions",
     "storage"
   ],
+  "icons": {
+    "16": "./dest/images/technologyx16.png",
+    "32": "./dest/images/technologyx32.png",
+    "128": "./dest/images/technologyx128.png"
+  },
 
   "browser_action": {
     "default_icon": "dest/images/technology.svg",
@@ -25,9 +29,12 @@
   "background": {
     "scripts": ["dest/js/background.js"]
   },
-  "applications": {
-    "gecko": {
-      "id": "{C0521136-367B-11E8-B931-7870A8B3674F}"
+  "commands": {
+    "_execute_browser_action": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+M",
+        "mac": "Command+Shift+M"
+      }
     }
   }
 
