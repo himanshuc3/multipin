@@ -2,7 +2,7 @@
   "description": " Multiple tabs ain't stressfull anymore. Clean and simple tab management. See https://github.com/himanshuc3/multipin",
   "manifest_version": 2,
   "name": "Multipin",
-  "version": "1.0",
+  "version": "1.0.1",
   "homepage_url": "https://github.com/himanshuc3/multipin",
   "applications": {
     "gecko": {
