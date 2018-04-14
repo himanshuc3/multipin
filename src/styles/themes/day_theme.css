@@ -111,6 +111,7 @@ body{
     border-right: 15px solid #ededf0;
     border-bottom: 10px solid #ededf0;
     background: #ededf0;
+    box-shadow: -10px 0px 3px 0px #ededf0;
     /* border: 1px solid black; */
 }
 
@@ -127,18 +128,16 @@ body{
 
 
 .reload:hover{
-    transform: rotateZ(360deg) scale3d(1.2,1.2,1.2);
     color: rgb(148, 0, 255);
+    transform: rotateZ(360deg);
 }
 
 .close_tab_button:hover{
-    transform: scale3d(1.2,1.2,1.2);
     color: rgb(148, 0, 255);
 }
 
 
 .highlighted {
-    cursor: pointer;
     background: #ededf0;
-    border-left: 3px solid rgba(148,0,255,1);
+    border-left: 5px solid rgba(148,0,255,1);
 }
