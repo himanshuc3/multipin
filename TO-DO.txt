@@ -1,4 +1,5 @@
 Tasks:
 
-    1. Snapshot of all current tabs to save for later.
+    1. Improve UI.
+    2. Brainstorm other ideas.
     
