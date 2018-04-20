@@ -1,5 +1,7 @@
 Tasks:
 
     1. Improve UI.
+    2. Add like/dislike feature for a webpage. This way user knows they didn't like this site and they've visited before
+        if they did not remember that.
     2. Brainstorm other ideas.
     
