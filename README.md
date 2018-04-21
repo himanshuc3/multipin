@@ -12,13 +12,13 @@ A Firefox extension to help you escape the tabs hell and find your way around.
 
  <p align="center">
     <img src="/repo_images/day.png" width="311"><br>
-    <em>Default theme - Clear Sky</em>
+    <em>Default theme :: Clear Sky</em>
  </p>
  
  
  <p align="center">
     <img src="repo_images/midnight_blue.png" width="308"><br>
-    <em>Theme suitable for less stress on the eyes - Midnight Blue</em>
+    <em>Theme suitable for less stress on the eyes :: Midnight Blue</em>
  </p>
 
 
