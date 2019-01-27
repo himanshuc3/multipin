@@ -16,18 +16,18 @@
     "storage"
   ],
   "icons": {
-    "16": "./dest/images/technologyx16.png",
-    "32": "./dest/images/technologyx32.png",
-    "128": "./dest/images/technologyx128.png"
+    "16": "./dist/images/technologyx16.png",
+    "32": "./dist/images/technologyx32.png",
+    "128": "./dist/images/technologyx128.png"
   },
 
   "browser_action": {
-    "default_icon": "dest/images/technology.svg",
+    "default_icon": "dist/images/technology.svg",
     "default_title": "Multipin",
     "default_popup": "popup.html"
   },
   "background": {
-    "scripts": ["dest/js/background.js"]
+    "scripts": ["dist/js/background.js"]
   },
   "commands": {
     "_execute_browser_action": {

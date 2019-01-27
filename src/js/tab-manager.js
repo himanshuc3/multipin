@@ -491,3 +491,5 @@ document.addEventListener('DOMContentLoaded', function() {
   // overwriteSnapshotAllWindowsCheckbox.onclick = toggleSnapshotTypeCheckbox.bind(null, overwriteSnapshotAllWindowsCheckbox, overwriteSnapshotActiveWindowCheckbox);
 
 });
+
+
